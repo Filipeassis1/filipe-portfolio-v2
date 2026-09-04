@@ -1,0 +1,184 @@
+.ds-button {
+  --button-bg: var(--ds-color-neutral-900);
+  --button-bg-hover: var(--ds-color-neutral-800);
+  --button-fg: var(--ds-color-neutral-000);
+  --button-border: transparent;
+  --button-height: 44px;
+  --button-padding-x: 18px;
+  --button-gap: 8px;
+  --button-radius: var(--ds-radius-md);
+
+  position: relative;
+  display: inline-flex;
+  min-width: 0;
+  height: var(--button-height);
+  align-items: center;
+  justify-content: center;
+  gap: var(--button-gap);
+  padding: 0 var(--button-padding-x);
+  border: 1px solid var(--button-border);
+  border-radius: var(--button-radius);
+  background: var(--button-bg);
+  color: var(--button-fg);
+  box-shadow: var(--ds-shadow-xs);
+  cursor: pointer;
+  font-family: var(--ds-font-body);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color var(--ds-duration-fast) var(--ds-ease-standard),
+    border-color var(--ds-duration-fast) var(--ds-ease-standard),
+    color var(--ds-duration-fast) var(--ds-ease-standard),
+    opacity var(--ds-duration-fast) var(--ds-ease-standard),
+    transform var(--ds-duration-fast) var(--ds-ease-standard);
+}
+
+.ds-button:hover {
+  background: var(--button-bg-hover);
+}
+
+.ds-button:active {
+  transform: translateY(1px);
+}
+
+.ds-button:focus {
+  outline: none;
+}
+
+.ds-button:focus-visible {
+  box-shadow: var(--ds-shadow-xs), var(--ds-focus-ring);
+}
+
+.ds-button:disabled,
+.ds-button[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.48;
+  transform: none;
+}
+
+.ds-button__content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: inherit;
+}
+
+.ds-button svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+.ds-button--primary {
+  --button-bg: var(--ds-color-neutral-900);
+  --button-bg-hover: var(--ds-color-neutral-700);
+  --button-fg: var(--ds-color-neutral-000);
+}
+
+.ds-button--secondary {
+  --button-bg: var(--ds-surface-base);
+  --button-bg-hover: var(--ds-border-subtle);
+  --button-fg: var(--ds-text-primary);
+  --button-border: var(--ds-border-subtle);
+}
+
+.ds-button--ghost {
+  --button-bg: transparent;
+  --button-bg-hover: var(--ds-surface-base);
+  --button-fg: var(--ds-text-primary);
+  box-shadow: none;
+}
+
+.ds-button--outline {
+  --button-bg: transparent;
+  --button-bg-hover: var(--ds-surface-base);
+  --button-fg: var(--ds-text-primary);
+  --button-border: var(--ds-border-default);
+  box-shadow: none;
+}
+
+.ds-button--destructive {
+  --button-bg: var(--ds-danger-primary);
+  --button-bg-hover: var(--ds-danger-primary-hover);
+  --button-fg: var(--ds-color-neutral-000);
+}
+
+.ds-button--link {
+  --button-bg: transparent;
+  --button-bg-hover: transparent;
+  --button-fg: var(--ds-text-primary);
+  --button-height: auto;
+  --button-padding-x: 0;
+  border: 0;
+  box-shadow: none;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.ds-button--xs {
+  --button-height: 32px;
+  --button-padding-x: 12px;
+  --button-gap: 6px;
+  --button-radius: var(--ds-radius-sm);
+  font-size: 12px;
+}
+
+.ds-button--sm {
+  --button-height: 38px;
+  --button-padding-x: 14px;
+  --button-gap: 7px;
+}
+
+.ds-button--md {
+  --button-height: 44px;
+  --button-padding-x: 18px;
+}
+
+.ds-button--lg {
+  --button-height: 52px;
+  --button-padding-x: 22px;
+  --button-radius: var(--ds-radius-lg);
+  font-size: 15px;
+}
+
+.ds-button--icon,
+.ds-button--icon-sm,
+.ds-button--icon-lg {
+  aspect-ratio: 1;
+  padding: 0;
+}
+
+.ds-button--icon {
+  --button-height: 44px;
+}
+
+.ds-button--icon-sm {
+  --button-height: 36px;
+}
+
+.ds-button--icon-lg {
+  --button-height: 52px;
+}
+
+.ds-button--loading .ds-button__content {
+  opacity: 0;
+}
+
+.ds-button__spinner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: ds-button-spin 700ms linear infinite;
+}
+
+@keyframes ds-button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

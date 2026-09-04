@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Filipe Assis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Inter+Tight:wght@500&family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (() => {
+        try {
+          if (localStorage.getItem("portfolio-theme") === "dark") {
+            document.documentElement.dataset.theme = "dark";
+          }
+        } catch (error) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="../styles.css" />
+    <script src="../theme.js" defer></script>
+  </head>
+  <body class="projects-page">
+    <header class="site-header" aria-label="Cabeçalho principal">
+      <div class="header-inner">
+        <div class="header-profile">
+          <div class="header-avatar" aria-hidden="true">
+            <div class="avatar-placeholder">
+              <span class="availability-dot"></span>
+            </div>
+          </div>
+          <div class="header-identity">
+            <p>Filipe Assis</p>
+            <a href="mailto:hello@studio.com">hello@studio.com</a>
+          </div>
+        </div>
+        <div class="header-right">
+          <nav class="header-nav" aria-label="Navegação principal">
+            <a href="../index.html#top">Home</a>
+            <a href="./">Projects</a>
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#resume">Resume</a>
+          </nav>
+          <button class="theme-toggle" type="button" aria-label="Ativar dark mode" data-theme-toggle>
+            <svg class="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 14.2A7.5 7.5 0 0 1 9.8 3 9 9 0 1 0 21 14.2z" />
+            </svg>
+            <svg class="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" />
+              <path d="M12 20v2" />
+              <path d="m4.93 4.93 1.41 1.41" />
+              <path d="m17.66 17.66 1.41 1.41" />
+              <path d="M2 12h2" />
+              <path d="M20 12h2" />
+              <path d="m6.34 17.66-1.41 1.41" />
+              <path d="m19.07 4.93-1.41 1.41" />
+            </svg>
+          </button>
+          <a class="header-cta" href="mailto:hello@studio.com">Contact</a>
+          <button class="menu-button header-menu-button" type="button" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-shell projects-shell">
+      <section class="projects-index" aria-labelledby="projects-title">
+        <nav class="case-breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html#top">Home</a>
+          <span>/</span>
+          <span>Projects</span>
+        </nav>
+
+        <div class="projects-index-hero">
+          <p class="mono-label">Portfolio</p>
+          <h1 id="projects-title">Projetos selecionados e experimentos.</h1>
+          <p>
+            Uma visão organizada dos trabalhos principais e dos estudos de
+            interface, produto, IA e experimentação visual.
+          </p>
+        </div>
+
+        <section class="projects-group" aria-labelledby="selected-projects-title">
+          <div class="projects-group-heading">
+            <div>
+              <p class="mono-label">01 / Selected work</p>
+              <h2 id="selected-projects-title">Projetos selecionados</h2>
+            </div>
+            <p>Cases com narrativa completa, decisões de produto e apresentação visual.</p>
+          </div>
+
+          <div class="projects-list projects-list-selected">
+            <a class="project-card project-card-featured project-card-elev" href="./elev-visual.html" aria-label="Abrir case Elev Visual">
+              <div class="project-visual">
+                <img src="../assets/elev-visual-case/hero.png" alt="" />
+              </div>
+              <div class="project-ribbon">
+                <div class="ribbon-track">
+                  <span>2026</span><i></i><span>Brand website</span><i></i>
+                  <span>2026</span><i></i><span>Brand website</span><i></i>
+                </div>
+              </div>
+              <div class="project-caption">
+                <span class="mono-label">UX / UI / IA</span>
+                <h3>Elev Visual</h3>
+              </div>
+            </a>
+
+            <a class="project-card project-card-featured" href="../project.html" aria-label="Abrir case Game hub">
+              <div class="project-visual visual-two"></div>
+              <div class="project-ribbon">
+                <div class="ribbon-track">
+                  <span>2026</span><i></i><span>Web3 Game hub</span><i></i>
+                  <span>2026</span><i></i><span>Web3 Game hub</span><i></i>
+                </div>
+              </div>
+              <div class="project-caption">
+                <span class="mono-label">Product design / Interface</span>
+                <h3>Game hub</h3>
+              </div>
+            </a>
+
+            <article class="project-card project-card-featured">
+              <div class="project-visual visual-four"></div>
+              <div class="project-ribbon">
+                <div class="ribbon-track">
+                  <span>2026</span><i></i><span>AI nutrition</span><i></i>
+                  <span>2026</span><i></i><span>AI nutrition</span><i></i>
+                </div>
+              </div>
+              <div class="project-caption">
+                <span class="mono-label">Mobile app / Health</span>
+                <h3>Nutra Coil</h3>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="projects-group" aria-labelledby="playground-projects-title">
+          <div class="projects-group-heading">
+            <div>
+              <p class="mono-label">02 / Playground</p>
+              <h2 id="playground-projects-title">Playground</h2>
+            </div>
+            <p>Estudos rápidos para testar linguagem visual, interação, IA e componentes.</p>
+          </div>
+
+          <div class="projects-list projects-list-playground">
+            <article class="project-card">
+              <div class="project-visual visual-one"></div>
+              <div class="project-ribbon">
+                <div class="ribbon-track">
+                  <span>2024</span><i></i><span>Generative AI</span><i></i>
+                  <span>2024</span><i></i><span>Generative AI</span><i></i>
+                </div>
+              </div>
+              <div class="project-caption">
+                <span class="mono-label">AI exploration</span>
+                <h3>Siri</h3>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-visual visual-three"></div>
+              <div class="project-ribbon">
+                <div class="ribbon-track">
+                  <span>2024</span><i></i><span>Fitness and health</span><i></i>
+                  <span>2024</span><i></i><span>Fitness and health</span><i></i>
+                </div>
+              </div>
+              <div class="project-caption">
+                <span class="mono-label">UX study</span>
+                <h3>FitLife</h3>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-visual visual-two"></div>
+              <div class="project-ribbon">
+                <div class="ribbon-track">
+                  <span>2025</span><i></i><span>Interface lab</span><i></i>
+                  <span>2025</span><i></i><span>Interface lab</span><i></i>
+                </div>
+              </div>
+              <div class="project-caption">
+                <span class="mono-label">Design system</span>
+                <h3>Origin UI Kit</h3>
+              </div>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer" aria-labelledby="footer-title">
+      <div class="footer-cursor" aria-hidden="true"></div>
+      <div class="footer-container">
+        <div class="footer-contact">
+          <h2 id="footer-title" class="particle-title">
+            <span class="particle-title-text">Stay connected</span>
+            <canvas class="particle-title-canvas" aria-hidden="true"></canvas>
+          </h2>
+          <a class="footer-cta" href="mailto:hello@studio.com">
+            <span>Get in touch</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 17 17 7" />
+              <path d="M8 7h9v9" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="footer-content">
+          <div class="footer-main">
+            <a class="footer-brand" href="../index.html#top">Filipe Assis</a>
+            <div class="footer-info">
+              <a href="mailto:hello@studio.com">hello@studio.com</a>
+              <p>Product Designer based in Brazil</p>
+            </div>
+          </div>
+
+          <nav class="footer-nav" aria-label="Links do rodapé">
+            <a href="./">Projects</a>
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#resume">Resume</a>
+            <a href="mailto:hello@studio.com">Contact</a>
+          </nav>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <p class="footer-credit">Portfolio by Filipe Assis - 2026</p>
+      </div>
+    </footer>
+  </body>
+</html>

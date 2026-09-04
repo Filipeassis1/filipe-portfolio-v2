@@ -1,0 +1,1164 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Styleguide & Design System | Filipe Assis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Inter+Tight:wght@500&family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (() => {
+        try {
+          if (localStorage.getItem("portfolio-theme") === "dark") {
+            document.documentElement.dataset.theme = "dark";
+          }
+        } catch (error) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./theme.js" defer></script>
+  </head>
+  <body class="styleguide-page">
+    <header class="site-header" aria-label="Cabeçalho principal">
+      <div class="header-inner">
+        <div class="header-profile">
+          <div class="header-avatar" aria-hidden="true">
+            <div class="avatar-placeholder">
+              <span class="availability-dot"></span>
+            </div>
+          </div>
+          <div class="header-identity">
+            <p>Filipe Assis</p>
+            <a href="mailto:hello@studio.com">hello@studio.com</a>
+          </div>
+        </div>
+        <div class="header-right">
+          <nav class="header-nav" aria-label="Navegação principal">
+            <a href="./index.html#top">Home</a>
+            <a href="./index.html#projects">Projects</a>
+            <a href="./index.html#about">About</a>
+            <a href="./index.html#resume">Resume</a>
+            <a href="./styleguide.html">Styleguide</a>
+          </nav>
+          <button class="theme-toggle" type="button" aria-label="Ativar dark mode" data-theme-toggle>
+            <svg class="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 14.2A7.5 7.5 0 0 1 9.8 3 9 9 0 1 0 21 14.2z" />
+            </svg>
+            <svg class="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" />
+              <path d="M12 20v2" />
+              <path d="m4.93 4.93 1.41 1.41" />
+              <path d="m17.66 17.66 1.41 1.41" />
+              <path d="M2 12h2" />
+              <path d="M20 12h2" />
+              <path d="m6.34 17.66-1.41 1.41" />
+              <path d="m19.07 4.93-1.41 1.41" />
+            </svg>
+          </button>
+          <a class="header-cta" href="mailto:hello@studio.com">Contact</a>
+          <button class="menu-button header-menu-button" type="button" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-shell styleguide-shell">
+      <section class="styleguide-hero" aria-labelledby="styleguide-title">
+        <nav class="case-breadcrumb" aria-label="Breadcrumb">
+          <a href="./index.html#top">Home</a>
+          <span>/</span>
+          <span>Styleguide</span>
+        </nav>
+
+        <div class="styleguide-hero-grid">
+          <div>
+            <p class="mono-label">Design system</p>
+            <h1 id="styleguide-title">Base visual para portfolio, cases e interfaces.</h1>
+          </div>
+          <p>
+            Esta página concentra as decisões visuais do projeto: tokens,
+            fundações, componentes e padrões de uso. A primeira versão documenta
+            tipografia e cores, deixando espaço para evoluir estados, grids,
+            ícones e templates.
+          </p>
+        </div>
+      </section>
+
+      <section class="styleguide-layout" aria-label="Documentação do sistema">
+        <div class="styleguide-tabs" data-styleguide-tabs>
+          <div class="styleguide-tablist" role="tablist" aria-label="Áreas do design system">
+            <button class="styleguide-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="tab-styleguide" id="tab-styleguide-button">
+              <span>01</span>
+              Styleguide
+            </button>
+            <button class="styleguide-tab" type="button" role="tab" aria-selected="false" aria-controls="tab-tokens" id="tab-tokens-button">
+              <span>02</span>
+              Tokens
+            </button>
+            <button class="styleguide-tab" type="button" role="tab" aria-selected="false" aria-controls="tab-components" id="tab-components-button">
+              <span>03</span>
+              Componentes
+            </button>
+            <button class="styleguide-tab" type="button" role="tab" aria-selected="false" aria-controls="tab-applications" id="tab-applications-button">
+              <span>04</span>
+              Aplicações
+            </button>
+          </div>
+
+          <div class="styleguide-content">
+            <div class="styleguide-panel is-active" id="tab-styleguide" role="tabpanel" aria-labelledby="tab-styleguide-button">
+          <section id="sg-foundations" class="styleguide-section">
+            <div class="styleguide-section-heading">
+              <p class="mono-label">01 / Foundations</p>
+              <h2>Princípios de interface</h2>
+              <p>
+                O sistema prioriza leitura, contraste, ritmo editorial e
+                superfícies densas sem perder respiro. O visual deve parecer
+                técnico, preciso e humano.
+              </p>
+            </div>
+
+            <div class="principles-grid">
+              <article>
+                <span>01</span>
+                <h3>Contraste primeiro</h3>
+                <p>Fundos escuros, texto claro e bordas sutis organizam o conteúdo.</p>
+              </article>
+              <article>
+                <span>02</span>
+                <h3>Ritmo editorial</h3>
+                <p>Títulos grandes abrem seções; labels mono orientam a navegação.</p>
+              </article>
+              <article>
+                <span>03</span>
+                <h3>Componentes contidos</h3>
+                <p>Cards e controles usam radius moderado e pouca ornamentação.</p>
+              </article>
+            </div>
+          </section>
+
+          <section id="sg-typography" class="styleguide-section">
+            <div class="styleguide-section-heading">
+              <p class="mono-label">02 / Typography</p>
+              <h2>Escala tipográfica</h2>
+              <p>
+                A tipografia combina Inter para leitura e interface, Inter Tight
+                para títulos expressivos e DM Mono para metadados, labels e
+                informações técnicas.
+              </p>
+            </div>
+
+            <div class="type-specimen-list">
+              <article class="type-specimen type-display">
+                <div>
+                  <span>Display / Hero</span>
+                  <code>Inter Tight · 500 · clamp(72px, 11vw, 172px)</code>
+                </div>
+                <p>Digital Designer</p>
+              </article>
+              <article class="type-specimen type-heading">
+                <div>
+                  <span>Heading / Section</span>
+                  <code>Inter · 700 · clamp(40px, 6vw, 88px)</code>
+                </div>
+                <p>Projeto com ritmo de artigo</p>
+              </article>
+              <article class="type-specimen type-title">
+                <div>
+                  <span>Title / Card</span>
+                  <code>Inter · 600 · 22px</code>
+                </div>
+                <p>UI Design e Product Design</p>
+              </article>
+              <article class="type-specimen type-body">
+                <div>
+                  <span>Body / Paragraph</span>
+                  <code>Inter · 400 · 16px</code>
+                </div>
+                <p>
+                  Texto base para apresentações longas, descrições de projeto,
+                  estudos de caso e documentação de componentes.
+                </p>
+              </article>
+              <article class="type-specimen type-label">
+                <div>
+                  <span>Label / Metadata</span>
+                  <code>DM Mono · 400 · 12px</code>
+                </div>
+                <p>PROJECT / DESIGN SYSTEM / 2026</p>
+              </article>
+            </div>
+          </section>
+
+          <section id="sg-colors" class="styleguide-section">
+            <div class="styleguide-section-heading">
+              <p class="mono-label">03 / Colors</p>
+              <h2>Paleta e uso</h2>
+              <p>
+                A base usa neutros escuros, superfícies próximas do preto e
+                acentos pontuais para status, chamadas e detalhes de marca.
+              </p>
+            </div>
+
+            <div class="color-grid">
+              <article class="color-swatch color-background">
+                <span></span>
+                <div>
+                  <h3>Canvas</h3>
+                  <code>--surface-canvas / --background</code>
+                  <p>#f9f9fa · #0a0a0b</p>
+                </div>
+              </article>
+              <article class="color-swatch color-surface">
+                <span></span>
+                <div>
+                  <h3>Surface</h3>
+                  <code>--surface-base / --surface</code>
+                  <p>#f4f4f6 · #141415</p>
+                </div>
+              </article>
+              <article class="color-swatch color-border">
+                <span></span>
+                <div>
+                  <h3>Border</h3>
+                  <code>--border-default / --border</code>
+                  <p>#dadae7 · #2e2e38</p>
+                </div>
+              </article>
+              <article class="color-swatch color-ink">
+                <span></span>
+                <div>
+                  <h3>Text Primary</h3>
+                  <code>--text-primary / --ink</code>
+                  <p>#141415 · #f5f5f0</p>
+                </div>
+              </article>
+              <article class="color-swatch color-muted">
+                <span></span>
+                <div>
+                  <h3>Text Muted</h3>
+                  <code>--text-muted / --muted</code>
+                  <p>#858593 · #6c6c7a</p>
+                </div>
+              </article>
+              <article class="color-swatch color-secondary">
+                <span></span>
+                <div>
+                  <h3>Text Secondary</h3>
+                  <code>--text-secondary / --secondary</code>
+                  <p>#656572 · #8d8d9a</p>
+                </div>
+              </article>
+              <article class="color-swatch color-orange">
+                <span></span>
+                <div>
+                  <h3>Accent Primary</h3>
+                  <code>--accent-primary / --accent-orange</code>
+                  <p>#ff4d2e</p>
+                </div>
+              </article>
+              <article class="color-swatch color-green">
+                <span></span>
+                <div>
+                  <h3>Status Green</h3>
+                  <code>--status-success / --status-green</code>
+                  <p>#16a36f</p>
+                </div>
+              </article>
+            </div>
+          </section>
+            </div>
+
+            <div class="styleguide-panel" id="tab-tokens" role="tabpanel" aria-labelledby="tab-tokens-button" hidden>
+          <section id="sg-tokens" class="styleguide-section">
+            <div class="styleguide-section-heading">
+              <p class="mono-label">04 / Tokens</p>
+              <h2>Mapa inicial de tokens</h2>
+              <p>
+                Estrutura base para organizar decisões reutilizáveis antes de
+                transformar tudo em componentes documentados.
+              </p>
+            </div>
+
+            <div class="token-table" role="table" aria-label="Tokens do sistema">
+              <div role="row">
+                <span role="columnheader">Categoria</span>
+                <span role="columnheader">Tokens</span>
+                <span role="columnheader">Uso</span>
+              </div>
+              <div role="row">
+                <span role="cell">Color</span>
+                <span role="cell">--color-*, --surface-*, --text-*, --accent-*</span>
+                <span role="cell">Primitivas neutras, semântica de superfície, texto, borda e marca</span>
+              </div>
+              <div role="row">
+                <span role="cell">Typography</span>
+                <span role="cell">--font-display, --font-body, --font-ui, --font-mono</span>
+                <span role="cell">Hierarquia de páginas, cases, interface e documentação técnica</span>
+              </div>
+              <div role="row">
+                <span role="cell">Radius</span>
+                <span role="cell">--radius-xs até --radius-xl, --radius-pill</span>
+                <span role="cell">Avatares, ícones, header, cards, chips e controles</span>
+              </div>
+              <div role="row">
+                <span role="cell">Spacing</span>
+                <span role="cell">--space-2xs até --space-6xl</span>
+                <span role="cell">Micro ajustes, grupos, cards, gutters e blocos editoriais</span>
+              </div>
+              <div role="row">
+                <span role="cell">Motion</span>
+                <span role="cell">--ease-standard, --duration-fast/base/slow</span>
+                <span role="cell">Hover, sticky, reveal, active states e transições consistentes</span>
+              </div>
+            </div>
+
+            <div class="token-layer-grid" aria-label="Hierarquia dos tokens">
+              <article>
+                <span class="component-status">Primitive</span>
+                <h3>Valor bruto</h3>
+                <p>Escalas de cor, spacing, radius, fontes e duração. Não carrega intenção de uso.</p>
+                <code>--color-neutral-950 · --space-lg · --radius-md</code>
+              </article>
+              <article>
+                <span class="component-status">Semantic</span>
+                <h3>Intenção</h3>
+                <p>Nomeia o papel visual seguindo a lógica Nitro: neutral, accent, status e texto.</p>
+                <code>--surface-base · --text-muted · --accent-primary</code>
+              </article>
+              <article>
+                <span class="component-status">Alias</span>
+                <h3>Uso de layout</h3>
+                <p>Facilita decisões recorrentes de página sem acoplar a valores absolutos.</p>
+                <code>--container-padding · --section-gap · --card-padding</code>
+              </article>
+              <article>
+                <span class="component-status">Component</span>
+                <h3>Variação local</h3>
+                <p>Usado quando o componente precisa de estados, densidade ou variantes próprias.</p>
+                <code>--button-bg-hover · --tabs-item-radius</code>
+              </article>
+            </div>
+
+            <div class="primitive-scale" aria-label="Escala primitiva de cor">
+              <div class="primitive-scale-header">
+                <p class="mono-label">Color primitives</p>
+                <p>Rampas que alimentam tokens semânticos sem prender componentes a hex direto.</p>
+              </div>
+              <div class="primitive-swatch-list">
+                <article><span style="background: var(--color-neutral-000);"></span><code>neutral-000</code><p>#ffffff</p></article>
+                <article><span style="background: var(--color-neutral-050);"></span><code>neutral-050</code><p>#f9f9fa</p></article>
+                <article><span style="background: var(--color-neutral-100);"></span><code>neutral-100</code><p>#f4f4f6</p></article>
+                <article><span style="background: var(--color-neutral-200);"></span><code>neutral-200</code><p>#e4e4f1</p></article>
+                <article><span style="background: var(--color-neutral-300);"></span><code>neutral-300</code><p>#dadae7</p></article>
+                <article><span style="background: var(--color-neutral-500);"></span><code>neutral-500</code><p>#858593</p></article>
+                <article><span style="background: var(--color-neutral-600);"></span><code>neutral-600</code><p>#656572</p></article>
+                <article><span style="background: var(--color-neutral-800);"></span><code>neutral-800</code><p>#212126</p></article>
+                <article><span style="background: var(--color-neutral-900);"></span><code>neutral-900</code><p>#141415</p></article>
+                <article><span style="background: var(--color-neutral-950);"></span><code>neutral-950</code><p>#0a0a0b</p></article>
+                <article><span style="background: var(--accent-primary);"></span><code>brand-orange</code><p>#ff4d2e</p></article>
+                <article><span style="background: var(--status-success);"></span><code>brand-green</code><p>#16a36f</p></article>
+              </div>
+            </div>
+
+            <div class="spacing-scale" aria-label="Escala de espacamento">
+              <article>
+                <div class="spacing-rail"><span style="width: var(--space-2xs);"></span></div>
+                <p class="mono-label">--space-2xs</p>
+                <h3>4px</h3>
+                <p>Ajustes finos entre texto, indicador e detalhes internos.</p>
+              </article>
+              <article>
+                <div class="spacing-rail"><span style="width: var(--space-xs);"></span></div>
+                <p class="mono-label">--space-xs</p>
+                <h3>8px</h3>
+                <p>Respiro curto em tabs, grupos pequenos e estados compactos.</p>
+              </article>
+              <article>
+                <div class="spacing-rail"><span style="width: var(--space-sm);"></span></div>
+                <p class="mono-label">--space-sm</p>
+                <h3>12px</h3>
+                <p>Gap padrao entre icone e texto em controles e cards pequenos.</p>
+              </article>
+              <article>
+                <div class="spacing-rail"><span style="width: var(--space-md);"></span></div>
+                <p class="mono-label">--space-md</p>
+                <h3>16px</h3>
+                <p>Gap comum entre cards, linhas de conteudo e listas.</p>
+              </article>
+              <article>
+                <div class="spacing-rail"><span style="width: var(--space-lg);"></span></div>
+                <p class="mono-label">--space-lg</p>
+                <h3>24px</h3>
+                <p>Padding base de container, cards e blocos com leitura curta.</p>
+              </article>
+              <article>
+                <div class="spacing-rail"><span style="width: var(--space-xl);"></span></div>
+                <p class="mono-label">--space-xl</p>
+                <h3>32px</h3>
+                <p>Separacao entre cabecalhos, grupos de botoes e stacks medios.</p>
+              </article>
+              <article>
+                <div class="spacing-rail"><span style="width: var(--space-2xl);"></span></div>
+                <p class="mono-label">--space-2xl</p>
+                <h3>48px</h3>
+                <p>Gutters editoriais, divisao entre colunas e blocos internos.</p>
+              </article>
+              <article>
+                <div class="spacing-rail"><span style="width: var(--space-3xl);"></span></div>
+                <p class="mono-label">--space-3xl</p>
+                <h3>64px</h3>
+                <p>Separacao ampla entre areas relacionadas em uma mesma section.</p>
+              </article>
+              <article>
+                <div class="spacing-rail"><span style="width: var(--space-4xl);"></span></div>
+                <p class="mono-label">--space-4xl</p>
+                <h3>72px</h3>
+                <p>Ritmo entre blocos principais de case, resume e styleguide.</p>
+              </article>
+              <article>
+                <div class="spacing-rail"><span style="width: var(--space-5xl);"></span></div>
+                <p class="mono-label">--space-5xl</p>
+                <h3>96px</h3>
+                <p>Respiro compacto de section e entradas de paginas internas.</p>
+              </article>
+              <article>
+                <div class="spacing-rail"><span style="width: var(--space-6xl);"></span></div>
+                <p class="mono-label">--space-6xl</p>
+                <h3>128px</h3>
+                <p>Espacamento vertical padrao entre grandes secoes da experiencia.</p>
+              </article>
+            </div>
+          </section>
+            </div>
+
+            <div class="styleguide-panel" id="tab-components" role="tabpanel" aria-labelledby="tab-components-button" hidden>
+          <section id="sg-components" class="styleguide-section">
+            <div class="styleguide-section-heading">
+              <p class="mono-label">05 / Components</p>
+              <h2>Inventário de componentes</h2>
+              <p>
+                Área reservada para documentar variações, estados e regras dos
+                elementos reutilizáveis do portfolio.
+              </p>
+            </div>
+
+            <div class="component-explorer" data-component-explorer>
+              <aside class="component-picker" aria-label="Selecionar componente">
+                <button class="is-active" type="button" data-component-option="buttons">
+                  <span>01</span>
+                  Buttons
+                </button>
+                <button type="button" data-component-option="tags">
+                  <span>02</span>
+                  Tags
+                </button>
+                <button type="button" data-component-option="cards">
+                  <span>03</span>
+                  Cards
+                </button>
+                <button type="button" data-component-option="article">
+                  <span>04</span>
+                  Article
+                </button>
+                <button type="button" data-component-option="navigation">
+                  <span>05</span>
+                  Navigation
+                </button>
+                <button type="button" data-component-option="media">
+                  <span>06</span>
+                  Media
+                </button>
+                <button type="button" data-component-option="blog">
+                  <span>07</span>
+                  Blog
+                </button>
+              </aside>
+
+              <div class="component-stage">
+                <article class="component-showcase is-active" data-component-panel="buttons">
+                  <div class="component-showcase-header">
+                    <div>
+                      <span class="component-status">01 / Buttons</span>
+                      <h3>Botões e chamadas</h3>
+                      <p>Ações claras para contato, navegação, abertura de cases e comandos de interface.</p>
+                    </div>
+                    <div class="component-actions">
+                      <button class="component-detail-button" type="button" data-component-toggle="details" aria-label="Ver detalhes técnicos">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M4 7h16M4 12h16M4 17h16" />
+                          <path d="M8 5v4m8 1v4m-5 1v4" />
+                        </svg>
+                      </button>
+                      <button class="component-code-button" type="button" data-component-toggle="code">View code</button>
+                    </div>
+                  </div>
+                  <div class="component-preview button-preview inspect-preview">
+                    <div class="inspectable" data-padding="0 16px 0 18px" data-size="142 x 44" data-font="Inter 14 / 700" data-radius="10px" data-inspect-name="Primary / icon + text" data-inspect-height="44px" data-inspect-padding="0 16px 0 18px" data-inspect-radius="10px" data-inspect-font="Inter 14px 700" data-inspect-icon="18px stroke 1.8" data-inspect-gap="8px" data-inspect-bg="--ink" data-inspect-fg="--background" data-inspect-hover="invert to light surface">
+                      <button class="sg-button sg-button-primary sg-button-with-icon" type="button">
+                        <span>Contact</span>
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M7 17 17 7" />
+                          <path d="M8 7h9v9" />
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="inspectable" data-padding="0 18px" data-size="104 x 44" data-font="Inter 14 / 700" data-radius="10px" data-inspect-name="Secondary / text only" data-inspect-height="44px" data-inspect-padding="0 18px" data-inspect-radius="10px" data-inspect-font="Inter 14px 700" data-inspect-icon="none" data-inspect-gap="0" data-inspect-bg="--surface" data-inspect-fg="--ink" data-inspect-hover="border and surface emphasis">
+                      <button class="sg-button sg-button-secondary" type="button">View case</button>
+                    </div>
+                    <div class="inspectable" data-padding="0" data-size="46 x 46" data-font="Icon 20px" data-radius="50%" data-inspect-name="Icon only" data-inspect-height="46px" data-inspect-padding="0" data-inspect-radius="50%" data-inspect-font="Icon only" data-inspect-icon="20px stroke 1.8" data-inspect-gap="0" data-inspect-bg="--surface" data-inspect-fg="--ink" data-inspect-hover="invert to ink background">
+                      <button class="sg-icon-button" type="button" aria-label="Scroll">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M12 5v13m0 0 5-5m-5 5-5-5" />
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="inspectable" data-padding="0 16px" data-size="128 x 44" data-font="Inter 14 / 700" data-radius="999px" data-inspect-name="Ghost / icon + text" data-inspect-height="44px" data-inspect-padding="0 16px" data-inspect-radius="999px" data-inspect-font="Inter 14px 700" data-inspect-icon="18px stroke 1.8" data-inspect-gap="8px" data-inspect-bg="surface / 78%" data-inspect-fg="--ink" data-inspect-hover="solid surface emphasis">
+                      <button class="sg-button sg-button-ghost sg-button-with-icon" type="button">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M12 5v14" />
+                          <path d="m5 12 7-7 7 7" />
+                        </svg>
+                        <span>Upload</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="component-source-note">
+                    <div>
+                      <span class="component-status">React / Storybook</span>
+                      <h4>Fonte de verdade do componente</h4>
+                    </div>
+                    <p>
+                      O Button agora nasce no pacote isolado <code>design-system</code>. Depois de validado no playground,
+                      esta documentação espelha anatomia, tokens, estados, acessibilidade e handoff para Figma.
+                    </p>
+                  </div>
+                  <div class="component-details" data-component-details hidden>
+                    <div class="inspect-panel">
+                      <div class="box-model">
+                        <span class="box-label box-margin">margin: 0</span>
+                        <span class="box-label box-border">border: 1px</span>
+                        <span class="box-label box-padding">padding: <b data-inspect-output="padding">0 16px 0 18px</b></span>
+                        <span class="box-content">content</span>
+                      </div>
+                      <dl>
+                        <div><dt>Variant</dt><dd data-inspect-output="name">Primary / icon + text</dd></div>
+                        <div><dt>Height</dt><dd data-inspect-output="height">44px</dd></div>
+                        <div><dt>Padding</dt><dd data-inspect-output="padding">0 16px 0 18px</dd></div>
+                        <div><dt>Radius</dt><dd data-inspect-output="radius">10px</dd></div>
+                        <div><dt>Font</dt><dd data-inspect-output="font">Inter 14px 700</dd></div>
+                        <div><dt>Icon</dt><dd data-inspect-output="icon">18px stroke 1.8</dd></div>
+                        <div><dt>Gap</dt><dd data-inspect-output="gap">8px</dd></div>
+                        <div><dt>Color</dt><dd><span data-inspect-output="bg">--ink</span> / <span data-inspect-output="fg">--background</span></dd></div>
+                        <div><dt>Hover</dt><dd data-inspect-output="hover">invert to light surface</dd></div>
+                      </dl>
+                    </div>
+                    <div class="token-hierarchy" aria-label="Hierarquia de tokens do botão">
+                      <div class="token-tree">
+                        <p>button</p>
+                        <ul>
+                          <li>
+                            <span>base</span>
+                            <ul>
+                              <li><code>display</code><strong>inline-flex</strong></li>
+                              <li><code>variant</code><strong data-inspect-output="name">Primary / icon + text</strong></li>
+                              <li><code>height</code><strong data-inspect-output="height">44px</strong></li>
+                              <li><code>border</code><strong>1px solid --border</strong></li>
+                              <li><code>radius</code><strong data-inspect-output="radius">10px</strong></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <span>typography</span>
+                            <ul>
+                              <li><code>family</code><strong>Inter</strong></li>
+                              <li><code>font</code><strong data-inspect-output="font">Inter 14px 700</strong></li>
+                              <li><code>weight</code><strong>700</strong></li>
+                              <li><code>line-height</code><strong>1</strong></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <span>spacing</span>
+                            <ul>
+                              <li><code>padding</code><strong data-inspect-output="padding">0 16px 0 18px</strong></li>
+                              <li><code>icon-gap</code><strong data-inspect-output="gap">8px</strong></li>
+                              <li><code>icon-size</code><strong data-inspect-output="icon">18px stroke 1.8</strong></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <span>colors</span>
+                            <ul>
+                              <li><code>bg</code><strong data-inspect-output="bg">--ink</strong></li>
+                              <li><code>fg</code><strong data-inspect-output="fg">--background</strong></li>
+                              <li><code>secondary.bg</code><strong>--surface</strong></li>
+                              <li><code>secondary.fg</code><strong>--ink</strong></li>
+                            </ul>
+                          </li>
+                          <li>
+                            <span>states</span>
+                            <ul>
+                              <li><code>hover</code><strong data-inspect-output="hover">invert to light surface</strong></li>
+                              <li><code>foreground</code><strong data-inspect-output="fg">--background</strong></li>
+                              <li><code>focus</code><strong>border --ink</strong></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <pre class="component-code" data-component-code hidden><code>import { Button } from "@filipe-assis/design-system";
+
+&lt;Button variant="primary" size="md" iconEnd={&lt;ArrowIcon /&gt;}&gt;
+  Contact
+&lt;/Button&gt;
+
+&lt;Button variant="secondary" size="md"&gt;
+  View case
+&lt;/Button&gt;
+
+&lt;Button variant="ghost" size="icon" aria-label="Scroll"&gt;
+  &lt;ArrowDownIcon /&gt;
+&lt;/Button&gt;</code></pre>
+                </article>
+
+                <article class="component-showcase" data-component-panel="tags" hidden>
+                  <div class="component-showcase-header">
+                    <div>
+                      <span class="component-status">02 / Tags</span>
+                      <h3>Tags, badges e status</h3>
+                      <p>Categorizam projetos, status de experiência, tecnologias e metadados de posts.</p>
+                    </div>
+                    <div class="component-actions">
+                      <button class="component-detail-button" type="button" data-component-toggle="details" aria-label="Ver detalhes técnicos">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /><path d="M8 5v4m8 1v4m-5 1v4" /></svg>
+                      </button>
+                      <button class="component-code-button" type="button" data-component-toggle="code">View code</button>
+                    </div>
+                  </div>
+                  <div class="component-preview tag-preview inspect-preview">
+                    <div class="inspectable" data-padding="0 13px" data-size="132 x 34" data-font="DM Mono 12" data-radius="999px" data-inspect-name="Category tag" data-inspect-height="34px min" data-inspect-padding="0 13px" data-inspect-radius="999px" data-inspect-font="DM Mono 12px" data-inspect-icon="none" data-inspect-gap="0" data-inspect-bg="--surface" data-inspect-fg="--secondary" data-inspect-hover="no hover by default">
+                      <span class="sg-tag">Product design</span>
+                    </div>
+                    <div class="inspectable" data-padding="0 13px" data-size="58 x 34" data-font="DM Mono 12" data-radius="999px" data-inspect-name="Short tag" data-inspect-height="34px min" data-inspect-padding="0 13px" data-inspect-radius="999px" data-inspect-font="DM Mono 12px" data-inspect-icon="none" data-inspect-gap="0" data-inspect-bg="--surface" data-inspect-fg="--secondary" data-inspect-hover="no hover by default">
+                      <span class="sg-tag">Web3</span>
+                    </div>
+                    <div class="inspectable" data-padding="0 13px" data-size="128 x 34" data-font="DM Mono 12" data-radius="999px" data-inspect-name="Status tag" data-inspect-height="34px min" data-inspect-padding="0 13px" data-inspect-radius="999px" data-inspect-font="DM Mono 12px" data-inspect-icon="none" data-inspect-gap="0" data-inspect-bg="transparent" data-inspect-fg="--status-green" data-inspect-hover="status emphasis only">
+                      <span class="sg-tag sg-tag-active">Em andamento</span>
+                    </div>
+                    <div class="inspectable" data-padding="0 13px" data-size="62 x 34" data-font="DM Mono 12" data-radius="999px" data-inspect-name="Meta tag" data-inspect-height="34px min" data-inspect-padding="0 13px" data-inspect-radius="999px" data-inspect-font="DM Mono 12px" data-inspect-icon="none" data-inspect-gap="0" data-inspect-bg="--surface" data-inspect-fg="--secondary" data-inspect-hover="no hover by default">
+                      <span class="sg-tag">2026</span>
+                    </div>
+                  </div>
+                  <div class="component-details" data-component-details hidden>
+                    <div class="inspect-panel">
+                      <div class="box-model">
+                        <span class="box-label box-margin">margin: 0</span>
+                        <span class="box-label box-border">border: 1px</span>
+                        <span class="box-label box-padding">padding: <b data-inspect-output="padding">0 13px</b></span>
+                        <span class="box-content">content</span>
+                      </div>
+                      <dl>
+                        <div><dt>Variant</dt><dd data-inspect-output="name">Category tag</dd></div>
+                        <div><dt>Height</dt><dd data-inspect-output="height">34px min</dd></div>
+                        <div><dt>Padding</dt><dd data-inspect-output="padding">0 13px</dd></div>
+                        <div><dt>Radius</dt><dd data-inspect-output="radius">999px</dd></div>
+                        <div><dt>Font</dt><dd data-inspect-output="font">DM Mono 12px</dd></div>
+                        <div><dt>Color</dt><dd><span data-inspect-output="bg">--surface</span> / <span data-inspect-output="fg">--secondary</span></dd></div>
+                      </dl>
+                    </div>
+                    <div class="token-hierarchy" aria-label="Hierarquia de tokens da tag">
+                      <div class="token-tree">
+                        <p>tag</p>
+                        <ul>
+                          <li><span>base</span><ul><li><code>variant</code><strong data-inspect-output="name">Category tag</strong></li><li><code>height</code><strong data-inspect-output="height">34px min</strong></li><li><code>radius</code><strong data-inspect-output="radius">999px</strong></li></ul></li>
+                          <li><span>typography</span><ul><li><code>font</code><strong data-inspect-output="font">DM Mono 12px</strong></li><li><code>case</code><strong>uppercase</strong></li></ul></li>
+                          <li><span>spacing</span><ul><li><code>padding</code><strong data-inspect-output="padding">0 13px</strong></li><li><code>gap</code><strong data-inspect-output="gap">0</strong></li></ul></li>
+                          <li><span>colors</span><ul><li><code>bg</code><strong data-inspect-output="bg">--surface</strong></li><li><code>fg</code><strong data-inspect-output="fg">--secondary</strong></li></ul></li>
+                          <li><span>states</span><ul><li><code>hover</code><strong data-inspect-output="hover">no hover by default</strong></li></ul></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <pre class="component-code" data-component-code hidden><code>&lt;span class="sg-tag"&gt;Product design&lt;/span&gt;
+&lt;span class="sg-tag sg-tag-active"&gt;Em andamento&lt;/span&gt;</code></pre>
+                </article>
+
+                <article class="component-showcase" data-component-panel="cards" hidden>
+                  <div class="component-showcase-header">
+                    <div>
+                      <span class="component-status">03 / Cards</span>
+                      <h3>Cards de conteúdo</h3>
+                      <p>Base para projetos, ferramentas, posts do blog, métricas e módulos de resumo.</p>
+                    </div>
+                    <div class="component-actions">
+                      <button class="component-detail-button" type="button" data-component-toggle="details" aria-label="Ver detalhes técnicos">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /><path d="M8 5v4m8 1v4m-5 1v4" /></svg>
+                      </button>
+                      <button class="component-code-button" type="button" data-component-toggle="code">View code</button>
+                    </div>
+                  </div>
+                  <div class="component-preview card-preview inspect-preview">
+                    <div class="inspectable card-inspectable" data-padding="14px" data-size="fluid x 220" data-font="Inter 20 / 600" data-radius="14px" data-inspect-name="Project card" data-inspect-height="220px preview" data-inspect-padding="14px" data-inspect-radius="14px" data-inspect-font="Inter 20px 600" data-inspect-icon="media slot 70px" data-inspect-gap="12px" data-inspect-bg="--surface" data-inspect-fg="--ink" data-inspect-hover="media/ribbon motion">
+                      <article class="sg-card sg-card-project">
+                        <div class="sg-card-visual"></div>
+                        <span>Case</span>
+                        <h4>Game hub</h4>
+                        <p>Projeto editorial com processo, imagens e métricas.</p>
+                      </article>
+                    </div>
+                    <div class="inspectable card-inspectable" data-padding="14px" data-size="fluid x 150" data-font="Inter 20 / 600" data-radius="14px" data-inspect-name="Tool card" data-inspect-height="150px min" data-inspect-padding="14px" data-inspect-radius="14px" data-inspect-font="Inter 20px 600" data-inspect-icon="44 x 44 slot" data-inspect-gap="12px" data-inspect-bg="--surface" data-inspect-fg="--ink" data-inspect-hover="border/surface emphasis">
+                      <article class="sg-card sg-card-tool">
+                        <div class="sg-mini-icon"></div>
+                        <div>
+                          <h4>Tool card</h4>
+                          <p>Ícone, nome e descrição curta.</p>
+                        </div>
+                      </article>
+                    </div>
+                    <div class="inspectable card-inspectable" data-padding="14px" data-size="fluid x 150" data-font="Inter 20 / 600" data-radius="14px" data-inspect-name="Post card" data-inspect-height="150px min" data-inspect-padding="14px" data-inspect-radius="14px" data-inspect-font="Inter 20px 600" data-inspect-icon="none" data-inspect-gap="6-12px" data-inspect-bg="--surface" data-inspect-fg="--ink" data-inspect-hover="title/link emphasis">
+                      <article class="sg-card sg-card-post">
+                        <span>Blog</span>
+                        <h4>Design systems para portfolios</h4>
+                        <p>Post card para artigos futuros.</p>
+                      </article>
+                    </div>
+                  </div>
+                  <div class="component-details" data-component-details hidden>
+                    <div class="inspect-panel">
+                      <div class="box-model">
+                        <span class="box-label box-margin">margin: 0</span>
+                        <span class="box-label box-border">border: 1px</span>
+                        <span class="box-label box-padding">padding: <b data-inspect-output="padding">14px</b></span>
+                        <span class="box-content">content</span>
+                      </div>
+                      <dl>
+                        <div><dt>Variant</dt><dd data-inspect-output="name">Project card</dd></div>
+                        <div><dt>Height</dt><dd data-inspect-output="height">220px preview</dd></div>
+                        <div><dt>Padding</dt><dd data-inspect-output="padding">14px</dd></div>
+                        <div><dt>Radius</dt><dd data-inspect-output="radius">14px</dd></div>
+                        <div><dt>Font</dt><dd data-inspect-output="font">Inter 20px 600</dd></div>
+                        <div><dt>Media/Icon</dt><dd data-inspect-output="icon">media slot 70px</dd></div>
+                        <div><dt>Gap</dt><dd data-inspect-output="gap">12px</dd></div>
+                        <div><dt>Color</dt><dd><span data-inspect-output="bg">--surface</span> / <span data-inspect-output="fg">--ink</span></dd></div>
+                        <div><dt>Hover</dt><dd data-inspect-output="hover">media/ribbon motion</dd></div>
+                      </dl>
+                    </div>
+                    <div class="token-hierarchy" aria-label="Hierarquia de tokens do card">
+                      <div class="token-tree">
+                        <p>card</p>
+                        <ul>
+                          <li><span>base</span><ul><li><code>variant</code><strong data-inspect-output="name">Project card</strong></li><li><code>height</code><strong data-inspect-output="height">220px preview</strong></li><li><code>radius</code><strong data-inspect-output="radius">14px</strong></li></ul></li>
+                          <li><span>typography</span><ul><li><code>title</code><strong data-inspect-output="font">Inter 20px 600</strong></li><li><code>body</code><strong>14px / 1.45</strong></li><li><code>meta</code><strong>DM Mono 11px</strong></li></ul></li>
+                          <li><span>spacing</span><ul><li><code>padding</code><strong data-inspect-output="padding">14px</strong></li><li><code>gap</code><strong data-inspect-output="gap">12px</strong></li></ul></li>
+                          <li><span>colors</span><ul><li><code>bg</code><strong data-inspect-output="bg">--surface</strong></li><li><code>fg</code><strong data-inspect-output="fg">--ink</strong></li><li><code>border</code><strong>--border-subtle</strong></li></ul></li>
+                          <li><span>states</span><ul><li><code>hover</code><strong data-inspect-output="hover">media/ribbon motion</strong></li></ul></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <pre class="component-code" data-component-code hidden><code>&lt;article class="sg-card"&gt;
+  &lt;span&gt;Case&lt;/span&gt;
+  &lt;h4&gt;Game hub&lt;/h4&gt;
+  &lt;p&gt;Projeto editorial com processo.&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+                </article>
+
+                <article class="component-showcase" data-component-panel="article" hidden>
+                  <div class="component-showcase-header">
+                    <div>
+                      <span class="component-status">04 / Article</span>
+                      <h3>Texto rico e artigos</h3>
+                      <p>Estrutura para cases e blog: headings, parágrafos, citações, código, imagens e legendas.</p>
+                    </div>
+                    <div class="component-actions">
+                      <button class="component-detail-button" type="button" data-component-toggle="details" aria-label="Ver detalhes técnicos">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /><path d="M8 5v4m8 1v4m-5 1v4" /></svg>
+                      </button>
+                      <button class="component-code-button" type="button" data-component-toggle="code">View code</button>
+                    </div>
+                  </div>
+                  <div class="component-preview article-preview inspect-preview">
+                    <div class="inspectable article-inspectable" data-padding="0" data-size="fit x 14" data-font="DM Mono 12" data-radius="0" data-inspect-name="Article label" data-inspect-height="14px text" data-inspect-padding="0" data-inspect-radius="0" data-inspect-font="DM Mono 12px" data-inspect-icon="none" data-inspect-gap="0" data-inspect-bg="transparent" data-inspect-fg="--muted" data-inspect-hover="none">
+                      <p class="mono-label">Article block</p>
+                    </div>
+                    <div class="inspectable article-inspectable" data-padding="0" data-size="fit x 24" data-font="Inter 20 / 600" data-radius="0" data-inspect-name="Article heading" data-inspect-height="24px text" data-inspect-padding="0" data-inspect-radius="0" data-inspect-font="Inter 20px 600" data-inspect-icon="none" data-inspect-gap="0" data-inspect-bg="transparent" data-inspect-fg="--ink" data-inspect-hover="none">
+                      <h4>Contexto do projeto</h4>
+                    </div>
+                    <div class="inspectable article-inspectable" data-padding="0" data-size="fluid x auto" data-font="Inter 14 / 1.45" data-radius="0" data-inspect-name="Body paragraph" data-inspect-height="auto" data-inspect-padding="0" data-inspect-radius="0" data-inspect-font="Inter 14px 400" data-inspect-icon="none" data-inspect-gap="0" data-inspect-bg="transparent" data-inspect-fg="--secondary" data-inspect-hover="none">
+                      <p>O conteúdo longo deve preservar largura de leitura, contraste e espaçamento confortável entre blocos.</p>
+                    </div>
+                    <div class="inspectable article-inspectable" data-padding="0 0 0 14px" data-size="fluid x auto" data-font="Inter 14 / 1.45" data-radius="0" data-inspect-name="Quote" data-inspect-height="auto" data-inspect-padding="0 0 0 14px" data-inspect-radius="0" data-inspect-font="Inter 14px 400" data-inspect-icon="2px accent border" data-inspect-gap="16px top" data-inspect-bg="transparent" data-inspect-fg="--ink" data-inspect-hover="none">
+                      <blockquote>Uma boa interface também documenta suas decisões.</blockquote>
+                    </div>
+                  </div>
+                  <div class="component-details" data-component-details hidden>
+                    <div class="inspect-panel">
+                      <div class="box-model"><span class="box-label box-margin">margin: varies</span><span class="box-label box-border">border: <b data-inspect-output="icon">none</b></span><span class="box-label box-padding">padding: <b data-inspect-output="padding">0</b></span><span class="box-content">content</span></div>
+                      <dl>
+                        <div><dt>Element</dt><dd data-inspect-output="name">Article label</dd></div>
+                        <div><dt>Height</dt><dd data-inspect-output="height">14px text</dd></div>
+                        <div><dt>Padding</dt><dd data-inspect-output="padding">0</dd></div>
+                        <div><dt>Font</dt><dd data-inspect-output="font">DM Mono 12px</dd></div>
+                        <div><dt>Color</dt><dd data-inspect-output="fg">--muted</dd></div>
+                        <div><dt>Spacing</dt><dd data-inspect-output="gap">0</dd></div>
+                      </dl>
+                    </div>
+                    <div class="token-hierarchy"><div class="token-tree"><p>article</p><ul><li><span>element</span><ul><li><code>selected</code><strong data-inspect-output="name">Article label</strong></li><li><code>max-width</code><strong>640-780px</strong></li></ul></li><li><span>typography</span><ul><li><code>font</code><strong data-inspect-output="font">DM Mono 12px</strong></li><li><code>color</code><strong data-inspect-output="fg">--muted</strong></li></ul></li><li><span>spacing</span><ul><li><code>padding</code><strong data-inspect-output="padding">0</strong></li><li><code>gap</code><strong data-inspect-output="gap">0</strong></li></ul></li><li><span>colors</span><ul><li><code>bg</code><strong data-inspect-output="bg">transparent</strong></li><li><code>fg</code><strong data-inspect-output="fg">--muted</strong></li></ul></li><li><span>states</span><ul><li><code>hover</code><strong data-inspect-output="hover">none</strong></li></ul></li></ul></div></div>
+                  </div>
+                  <pre class="component-code" data-component-code hidden><code>&lt;section class="case-article-block"&gt;
+  &lt;p class="mono-label"&gt;Resumo&lt;/p&gt;
+  &lt;h2&gt;Contexto do projeto&lt;/h2&gt;
+  &lt;p&gt;Texto do artigo...&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+                </article>
+
+                <article class="component-showcase" data-component-panel="navigation" hidden>
+                  <div class="component-showcase-header">
+                    <div>
+                      <span class="component-status">05 / Navigation</span>
+                      <h3>Navegação e orientação</h3>
+                      <p>Header, breadcrumb, tabs e índice sticky para contexto e deslocamento.</p>
+                    </div>
+                    <div class="component-actions">
+                      <button class="component-detail-button" type="button" data-component-toggle="details" aria-label="Ver detalhes técnicos">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /><path d="M8 5v4m8 1v4m-5 1v4" /></svg>
+                      </button>
+                      <button class="component-code-button" type="button" data-component-toggle="code">View code</button>
+                    </div>
+                  </div>
+                  <div class="component-preview navigation-preview inspect-preview">
+                    <div class="inspectable nav-inspectable" data-padding="0" data-size="fluid x 14" data-font="DM Mono 12" data-radius="0" data-inspect-name="Breadcrumb" data-inspect-height="14px text" data-inspect-padding="0" data-inspect-radius="0" data-inspect-font="DM Mono 12px" data-inspect-icon="slash separator" data-inspect-gap="10px" data-inspect-bg="transparent" data-inspect-fg="--muted / --ink" data-inspect-hover="link color to --ink">
+                      <nav class="sg-breadcrumb" aria-label="Exemplo de breadcrumb">
+                        <span>Home</span><span>/</span><span>Blog</span><span>/</span><strong>Post</strong>
+                      </nav>
+                    </div>
+                    <div class="inspectable nav-inspectable" data-padding="8px" data-size="fluid x 52" data-font="Inter 13" data-radius="14px" data-inspect-name="Segmented tabs" data-inspect-height="52px" data-inspect-padding="8px" data-inspect-radius="14px" data-inspect-font="Inter 13px 500" data-inspect-icon="none" data-inspect-gap="8px" data-inspect-bg="--surface" data-inspect-fg="--secondary / --ink" data-inspect-hover="active bg --ink">
+                      <div class="sg-mini-tabs">
+                        <span class="is-active">Styleguide</span>
+                        <span>Tokens</span>
+                        <span>Componentes</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="component-details" data-component-details hidden>
+                    <div class="inspect-panel">
+                      <div class="box-model"><span class="box-label box-margin">margin: 0</span><span class="box-label box-border">border: contextual</span><span class="box-label box-padding">padding: <b data-inspect-output="padding">0</b></span><span class="box-content">content</span></div>
+                      <dl><div><dt>Element</dt><dd data-inspect-output="name">Breadcrumb</dd></div><div><dt>Height</dt><dd data-inspect-output="height">14px text</dd></div><div><dt>Padding</dt><dd data-inspect-output="padding">0</dd></div><div><dt>Radius</dt><dd data-inspect-output="radius">0</dd></div><div><dt>Font</dt><dd data-inspect-output="font">DM Mono 12px</dd></div><div><dt>Gap</dt><dd data-inspect-output="gap">10px</dd></div><div><dt>Color</dt><dd data-inspect-output="fg">--muted / --ink</dd></div><div><dt>Hover</dt><dd data-inspect-output="hover">link color to --ink</dd></div></dl>
+                    </div>
+                    <div class="token-hierarchy"><div class="token-tree"><p>navigation</p><ul><li><span>base</span><ul><li><code>selected</code><strong data-inspect-output="name">Breadcrumb</strong></li><li><code>height</code><strong data-inspect-output="height">14px text</strong></li><li><code>radius</code><strong data-inspect-output="radius">0</strong></li></ul></li><li><span>typography</span><ul><li><code>font</code><strong data-inspect-output="font">DM Mono 12px</strong></li></ul></li><li><span>spacing</span><ul><li><code>padding</code><strong data-inspect-output="padding">0</strong></li><li><code>gap</code><strong data-inspect-output="gap">10px</strong></li></ul></li><li><span>colors</span><ul><li><code>fg</code><strong data-inspect-output="fg">--muted / --ink</strong></li><li><code>bg</code><strong data-inspect-output="bg">transparent</strong></li></ul></li><li><span>states</span><ul><li><code>hover</code><strong data-inspect-output="hover">link color to --ink</strong></li></ul></li></ul></div></div>
+                  </div>
+                  <pre class="component-code" data-component-code hidden><code>&lt;nav class="case-breadcrumb"&gt;
+  &lt;a href="#"&gt;Home&lt;/a&gt;&lt;span&gt;/&lt;/span&gt;&lt;span&gt;Post&lt;/span&gt;
+&lt;/nav&gt;</code></pre>
+                </article>
+
+                <article class="component-showcase" data-component-panel="media" hidden>
+                  <div class="component-showcase-header">
+                    <div>
+                      <span class="component-status">06 / Media</span>
+                      <h3>Mídia, galeria e marquee</h3>
+                      <p>Áreas de imagem com proporção estável e comportamento previsível.</p>
+                    </div>
+                    <div class="component-actions">
+                      <button class="component-detail-button" type="button" data-component-toggle="details" aria-label="Ver detalhes técnicos">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /><path d="M8 5v4m8 1v4m-5 1v4" /></svg>
+                      </button>
+                      <button class="component-code-button" type="button" data-component-toggle="code">View code</button>
+                    </div>
+                  </div>
+                  <div class="component-preview media-preview inspect-preview">
+                    <div class="inspectable media-inspectable" data-padding="0" data-size="16 / 8" data-font="none" data-radius="14px" data-inspect-name="Hero media" data-inspect-height="aspect 16 / 8" data-inspect-padding="0" data-inspect-radius="14px" data-inspect-font="none" data-inspect-icon="image/video" data-inspect-gap="0" data-inspect-bg="media surface" data-inspect-fg="n/a" data-inspect-hover="optional scale/none">
+                      <div class="sg-media-large"></div>
+                    </div>
+                    <div class="inspectable media-inspectable" data-padding="0" data-size="3 columns 4 / 3" data-font="none" data-radius="10px" data-inspect-name="Thumbnail row" data-inspect-height="aspect 4 / 3" data-inspect-padding="0" data-inspect-radius="10px" data-inspect-font="none" data-inspect-icon="image thumbnails" data-inspect-gap="8px" data-inspect-bg="--surface" data-inspect-fg="n/a" data-inspect-hover="optional border emphasis">
+                      <div class="sg-media-row"><span></span><span></span><span></span></div>
+                    </div>
+                  </div>
+                  <div class="component-details" data-component-details hidden>
+                    <div class="inspect-panel">
+                      <div class="box-model"><span class="box-label box-margin">margin: 0</span><span class="box-label box-border">border: 1px</span><span class="box-label box-padding">padding: <b data-inspect-output="padding">0</b></span><span class="box-content">media</span></div>
+                      <dl><div><dt>Element</dt><dd data-inspect-output="name">Hero media</dd></div><div><dt>Ratio</dt><dd data-inspect-output="height">aspect 16 / 8</dd></div><div><dt>Padding</dt><dd data-inspect-output="padding">0</dd></div><div><dt>Radius</dt><dd data-inspect-output="radius">14px</dd></div><div><dt>Asset</dt><dd data-inspect-output="icon">image/video</dd></div><div><dt>Gap</dt><dd data-inspect-output="gap">0</dd></div></dl>
+                    </div>
+                    <div class="token-hierarchy"><div class="token-tree"><p>media</p><ul><li><span>base</span><ul><li><code>selected</code><strong data-inspect-output="name">Hero media</strong></li><li><code>ratio</code><strong data-inspect-output="height">aspect 16 / 8</strong></li><li><code>radius</code><strong data-inspect-output="radius">14px</strong></li></ul></li><li><span>asset</span><ul><li><code>type</code><strong data-inspect-output="icon">image/video</strong></li><li><code>fit</code><strong>cover/contain</strong></li></ul></li><li><span>spacing</span><ul><li><code>padding</code><strong data-inspect-output="padding">0</strong></li><li><code>gap</code><strong data-inspect-output="gap">0</strong></li></ul></li><li><span>colors</span><ul><li><code>bg</code><strong data-inspect-output="bg">media surface</strong></li><li><code>border</code><strong>--border-subtle</strong></li></ul></li><li><span>states</span><ul><li><code>hover</code><strong data-inspect-output="hover">optional scale/none</strong></li></ul></li></ul></div></div>
+                  </div>
+                  <pre class="component-code" data-component-code hidden><code>&lt;div class="case-image-slot case-image-slot-large"&gt;
+  &lt;span&gt;Imagem do projeto&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+                </article>
+
+                <article class="component-showcase" data-component-panel="blog" hidden>
+                  <div class="component-showcase-header">
+                    <div>
+                      <span class="component-status">07 / Blog</span>
+                      <h3>Componentes do blog</h3>
+                      <p>Index, cards de post, filtros, conteúdo relacionado e template de artigo.</p>
+                    </div>
+                    <div class="component-actions">
+                      <button class="component-detail-button" type="button" data-component-toggle="details" aria-label="Ver detalhes técnicos">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /><path d="M8 5v4m8 1v4m-5 1v4" /></svg>
+                      </button>
+                      <button class="component-code-button" type="button" data-component-toggle="code">View code</button>
+                    </div>
+                  </div>
+                  <div class="component-preview blog-preview inspect-preview">
+                    <div class="inspectable blog-inspectable" data-padding="18px" data-size="fluid x auto" data-font="Inter 20 / 600" data-radius="14px" data-inspect-name="Post card" data-inspect-height="auto" data-inspect-padding="18px" data-inspect-radius="14px" data-inspect-font="Inter 20px 600" data-inspect-icon="category/meta labels" data-inspect-gap="12-16px" data-inspect-bg="--surface" data-inspect-fg="--ink" data-inspect-hover="link/title emphasis">
+                      <article class="sg-blog-card">
+                        <span>Design system</span>
+                        <h4>Como documentar decisões visuais</h4>
+                        <p>Resumo curto para previews de posts e listagens.</p>
+                        <small>6 min read · 2026</small>
+                      </article>
+                    </div>
+                    <div class="inspectable blog-inspectable" data-padding="8px" data-size="fluid x 50" data-font="Inter 13" data-radius="14px" data-inspect-name="Category filter" data-inspect-height="50px" data-inspect-padding="8px" data-inspect-radius="14px" data-inspect-font="Inter 13px 500" data-inspect-icon="none" data-inspect-gap="8px" data-inspect-bg="--surface" data-inspect-fg="--secondary / --ink" data-inspect-hover="active bg --ink">
+                      <div class="sg-filter-row">
+                        <span class="is-active">Todos</span>
+                        <span>Design</span>
+                        <span>Processo</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="component-details" data-component-details hidden>
+                    <div class="inspect-panel">
+                      <div class="box-model"><span class="box-label box-margin">margin: 0</span><span class="box-label box-border">border: 1px</span><span class="box-label box-padding">padding: <b data-inspect-output="padding">18px</b></span><span class="box-content">content</span></div>
+                      <dl><div><dt>Element</dt><dd data-inspect-output="name">Post card</dd></div><div><dt>Height</dt><dd data-inspect-output="height">auto</dd></div><div><dt>Padding</dt><dd data-inspect-output="padding">18px</dd></div><div><dt>Radius</dt><dd data-inspect-output="radius">14px</dd></div><div><dt>Font</dt><dd data-inspect-output="font">Inter 20px 600</dd></div><div><dt>Meta/Icon</dt><dd data-inspect-output="icon">category/meta labels</dd></div><div><dt>Gap</dt><dd data-inspect-output="gap">12-16px</dd></div><div><dt>Color</dt><dd><span data-inspect-output="bg">--surface</span> / <span data-inspect-output="fg">--ink</span></dd></div><div><dt>Hover</dt><dd data-inspect-output="hover">link/title emphasis</dd></div></dl>
+                    </div>
+                    <div class="token-hierarchy"><div class="token-tree"><p>blog</p><ul><li><span>base</span><ul><li><code>selected</code><strong data-inspect-output="name">Post card</strong></li><li><code>height</code><strong data-inspect-output="height">auto</strong></li><li><code>radius</code><strong data-inspect-output="radius">14px</strong></li></ul></li><li><span>typography</span><ul><li><code>title</code><strong data-inspect-output="font">Inter 20px 600</strong></li><li><code>meta</code><strong>DM Mono 11px</strong></li></ul></li><li><span>spacing</span><ul><li><code>padding</code><strong data-inspect-output="padding">18px</strong></li><li><code>gap</code><strong data-inspect-output="gap">12-16px</strong></li></ul></li><li><span>colors</span><ul><li><code>bg</code><strong data-inspect-output="bg">--surface</strong></li><li><code>fg</code><strong data-inspect-output="fg">--ink</strong></li></ul></li><li><span>states</span><ul><li><code>hover</code><strong data-inspect-output="hover">link/title emphasis</strong></li></ul></li></ul></div></div>
+                  </div>
+                  <pre class="component-code" data-component-code hidden><code>&lt;article class="sg-blog-card"&gt;
+  &lt;span&gt;Design system&lt;/span&gt;
+  &lt;h4&gt;Título do post&lt;/h4&gt;
+  &lt;small&gt;6 min read&lt;/small&gt;
+&lt;/article&gt;</code></pre>
+                </article>
+              </div>
+            </div>
+          </section>
+            </div>
+
+            <div class="styleguide-panel" id="tab-applications" role="tabpanel" aria-labelledby="tab-applications-button" hidden>
+              <section id="sg-applications" class="styleguide-section">
+                <div class="styleguide-section-heading">
+                  <p class="mono-label">04 / Applications</p>
+                  <h2>Regras de aplicação</h2>
+                  <p>
+                    Diretrizes para manter consistência entre homepage, páginas
+                    de case e futuras telas do portfolio.
+                  </p>
+                </div>
+
+                <div class="application-grid">
+                  <article>
+                    <span class="component-status">Audit / Foundations</span>
+                    <h3>Base em progresso</h3>
+                    <p>
+                      Spacing, cores e aliases semânticos já têm primeira
+                      estrutura. Próximo passo: documentar radius, motion e
+                      tipografia como tokens completos.
+                    </p>
+                  </article>
+                  <article>
+                    <span class="component-status">Audit / Components</span>
+                    <h3>Componentes prioritários</h3>
+                    <p>
+                      Buttons, tags e navigation são a base inicial. Em seguida:
+                      inputs, alerts, modal, table e pagination para suportar
+                      blog e páginas futuras.
+                    </p>
+                  </article>
+                  <article>
+                    <span class="component-status">Audit / Naming</span>
+                    <h3>Migração gradual</h3>
+                    <p>
+                      Variáveis legadas continuam ativas, mas novas decisões
+                      devem seguir primitive, semantic, alias e component tokens.
+                    </p>
+                  </article>
+                  <article>
+                    <span class="component-status">Homepage</span>
+                    <h3>Impacto no primeiro viewport</h3>
+                    <p>
+                      Usar display type apenas no hero e preservar contraste
+                      alto nos cards de projeto.
+                    </p>
+                  </article>
+                  <article>
+                    <span class="component-status">Cases</span>
+                    <h3>Leitura longa</h3>
+                    <p>
+                      Organizar conteúdo em blocos com labels mono, títulos
+                      objetivos e imagens em espaços reservados.
+                    </p>
+                  </article>
+                  <article>
+                    <span class="component-status">Resume</span>
+                    <h3>Cards de ferramentas</h3>
+                    <p>
+                      Ícones usam slots 52x52, fundo controlado e animação
+                      sutil por CSS.
+                    </p>
+                  </article>
+                  <article>
+                    <span class="component-status">Mobile</span>
+                    <h3>Hierarquia compacta</h3>
+                    <p>
+                      Reduzir grids para uma coluna, manter botões tocáveis e
+                      evitar textos espremidos dentro de cards.
+                    </p>
+                  </article>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" aria-labelledby="footer-title">
+      <div class="footer-container">
+        <div class="footer-contact">
+          <h2 id="footer-title" class="particle-title">
+            <span class="particle-title-text">Stay connected</span>
+          </h2>
+          <a class="footer-cta" href="mailto:hello@studio.com">
+            <span>Get in touch</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 17 17 7" />
+              <path d="M8 7h9v9" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="footer-content">
+          <div class="footer-main">
+            <a class="footer-brand" href="./index.html#top">Filipe Assis</a>
+            <div class="footer-info">
+              <a href="mailto:hello@studio.com">hello@studio.com</a>
+              <p>Product Designer based in Brazil</p>
+            </div>
+          </div>
+
+          <nav class="footer-nav" aria-label="Links do rodapé">
+            <a href="./index.html#projects">Projects</a>
+            <a href="./index.html#about">About</a>
+            <a href="./index.html#resume">Resume</a>
+            <a href="./styleguide.html">Styleguide</a>
+            <a href="mailto:hello@studio.com">Contact</a>
+          </nav>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <p class="footer-credit">Portfolio by Filipe Assis - 2026</p>
+      </div>
+    </footer>
+
+    <script>
+      const tabRoot = document.querySelector("[data-styleguide-tabs]");
+      const tabs = tabRoot ? [...tabRoot.querySelectorAll("[role='tab']")] : [];
+      const panels = tabRoot ? [...tabRoot.querySelectorAll("[role='tabpanel']")] : [];
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const target = tab.getAttribute("aria-controls");
+
+          tabs.forEach((item) => {
+            const isActive = item === tab;
+            item.classList.toggle("is-active", isActive);
+            item.setAttribute("aria-selected", String(isActive));
+          });
+
+          panels.forEach((panel) => {
+            const isActive = panel.id === target;
+            panel.classList.toggle("is-active", isActive);
+            panel.hidden = !isActive;
+          });
+        });
+      });
+
+      const componentExplorer = document.querySelector("[data-component-explorer]");
+      const componentOptions = componentExplorer ? [...componentExplorer.querySelectorAll("[data-component-option]")] : [];
+      const componentPanels = componentExplorer ? [...componentExplorer.querySelectorAll("[data-component-panel]")] : [];
+
+      componentOptions.forEach((option) => {
+        option.addEventListener("click", () => {
+          const target = option.dataset.componentOption;
+
+          componentOptions.forEach((item) => {
+            item.classList.toggle("is-active", item === option);
+          });
+
+          componentPanels.forEach((panel) => {
+            const isActive = panel.dataset.componentPanel === target;
+            panel.classList.toggle("is-active", isActive);
+            panel.hidden = !isActive;
+
+            if (!isActive) {
+              panel.querySelector("[data-component-code]")?.setAttribute("hidden", "");
+              panel.querySelector("[data-component-details]")?.setAttribute("hidden", "");
+              panel.querySelectorAll("[data-component-toggle]").forEach((toggle) => {
+                toggle.classList.remove("is-active");
+              });
+            }
+          });
+        });
+      });
+
+      componentExplorer?.addEventListener("click", (event) => {
+        const toggle = event.target.closest("[data-component-toggle]");
+        if (!toggle) return;
+
+        const panel = toggle.closest("[data-component-panel]");
+        const target = toggle.dataset.componentToggle === "code"
+          ? panel.querySelector("[data-component-code]")
+          : panel.querySelector("[data-component-details]");
+
+        if (!target) return;
+
+        const isHidden = target.hidden;
+        target.hidden = !isHidden;
+        toggle.classList.toggle("is-active", isHidden);
+      });
+
+      const updateInspectOutputs = (inspectable) => {
+        const panel = inspectable.closest("[data-component-panel]");
+        if (!panel) return;
+
+        const values = {
+          name: inspectable.dataset.inspectName,
+          height: inspectable.dataset.inspectHeight,
+          padding: inspectable.dataset.inspectPadding,
+          radius: inspectable.dataset.inspectRadius,
+          font: inspectable.dataset.inspectFont,
+          icon: inspectable.dataset.inspectIcon,
+          gap: inspectable.dataset.inspectGap,
+          bg: inspectable.dataset.inspectBg,
+          fg: inspectable.dataset.inspectFg,
+          hover: inspectable.dataset.inspectHover
+        };
+
+        Object.entries(values).forEach(([key, value]) => {
+          if (!value) return;
+          panel.querySelectorAll(`[data-inspect-output="${key}"]`).forEach((output) => {
+            output.textContent = value;
+          });
+        });
+
+        panel.querySelectorAll(".inspectable").forEach((item) => {
+          item.classList.toggle("is-being-inspected", item === inspectable);
+        });
+      };
+
+      componentExplorer?.querySelectorAll(".inspectable").forEach((inspectable) => {
+        inspectable.addEventListener("pointerenter", () => updateInspectOutputs(inspectable));
+        inspectable.addEventListener("focusin", () => updateInspectOutputs(inspectable));
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  background: var(--ds-surface-canvas);
+  color: var(--ds-text-primary);
+  font-family: var(--ds-font-body);
+}
+
+button,
+a {
+  font: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
