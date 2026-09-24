@@ -7278,47 +7278,86 @@ html[data-theme="dark"] .theme-toggle .theme-icon-sun {
   }
 }
 
-/* Lana case — Figma 469:5486. Evidence panels retain the source crops. */
+/* Lana case — Figma 469:5486. */
 .lana-case { padding-bottom: 80px; }
-.lana-case .elev-case__section { gap: var(--space-md); }
+.lana-case .elev-case__shell { gap: 32px; }
+.lana-case__main-content { display: flex; flex-direction: column; gap: 32px; flex: 0 0 2279px; height: 2279px; }
+.lana-case .case-header { gap: 32px; }
+.lana-case .elev-case__hero { gap: 32px; }
+.lana-case .elev-case__hero h1 { font-size: 40px; }
 .lana-case .elev-case__meta { grid-template-columns: 150px 1px 230px 1px minmax(0, 1fr); }
 .lana-case .elev-case__meta::before,
 .lana-case .elev-case__meta::after { height: 44px; }
+.lana-case__intro { height: 123px; flex: 0 0 123px; }
+.lana-case__challenge { height: 149px; flex: 0 0 149px; }
+.lana-case__starting-point { height: 175px; flex: 0 0 175px; }
+.lana-case__data-heading { height: 29px; flex: 0 0 29px; }
+.lana-case__highlight { height: 75px; flex: 0 0 75px; }
 .lana-case__divider { width: 100%; margin: 0; border: 0; border-top: 1px solid #e5e5e5; }
 .lana-case__image { margin: 0; }
-.lana-case__image > img { width: 100%; height: auto; border-radius: 6px; }
+.lana-case__image > img { display: block; width: 100%; height: auto; border-radius: 6px; }
+.lana-case__first-site { height: 346px; margin-top: -4px; overflow: hidden; }
+.lana-case__first-site > img { height: 100%; object-fit: cover; object-position: top; }
+.lana-case__data-heading h2 { margin: 0; }
 .lana-case__evidence { position: relative; margin: 0; background: #fafafa; border-radius: 6px; overflow: hidden; }
-.lana-case__evidence--analytics { padding: 50.5px 44px; }
-.lana-case__analytics-crop { position: relative; aspect-ratio: 568 / 199; overflow: hidden; border-radius: var(--radius-xs); }
-.lana-case__analytics-crop img { position: absolute; width: 108.1%; height: 107%; max-width: none; left: -4.05%; top: -6.77%; }
-.lana-case figcaption,
-.lana-case .lana-case__caption { font-size: 12px; line-height: 1.5; text-align: center; color: #8590a2; }
+.lana-case__analytics > img { width: 100%; height: auto; border-radius: 6px; }
+.lana-case figcaption { font-size: 12px; line-height: 1.5; text-align: center; color: #8590a2; }
 .lana-case__evidence figcaption { position: absolute; bottom: 16.5px; left: 0; width: 100%; padding: 0 8px; }
-.lana-case__baseline { display: flex; flex-direction: column; gap: var(--space-md); }
-.lana-case__metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-md); margin: 0; }
-.lana-case__metrics > div { display: flex; flex-direction: column; gap: var(--space-sm); padding: var(--space-md); border: 1px solid #e5e5e5; border-radius: 12px; }
+.lana-case__baseline { display: flex; flex-direction: column; gap: 16px; height: 161px; }
+.lana-case__metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 0; }
+.lana-case__metrics > div { display: flex; flex-direction: column; gap: 12px; padding: 16px; border: 1px solid #e5e5e5; border-radius: 12px; }
 .lana-case__metrics dt { font-size: 13px; font-weight: 600; line-height: 1.4; color: #000; }
 .lana-case__metrics dd { margin: 0; font-family: Archivo, Inter, sans-serif; font-size: 28px; font-weight: 500; line-height: 1.2; color: #000; }
 .lana-case__metrics span { font-size: 12px; line-height: 1.45; color: #8590a2; }
+.lana-case__caption { margin: 0; font-size: 12px !important; line-height: 1.5 !important; text-align: center; }
 .lana-case .lana-case__highlight { font-weight: 500; line-height: 1.55; color: #000; }
-.lana-case__evidence--research { padding: 44px; }
-.lana-case__research-images { display: flex; flex-direction: column; gap: var(--space-xs); }
-.lana-case__research-images img { width: 100%; height: auto; aspect-ratio: 568 / 199; object-fit: cover; border-radius: var(--radius-xs); }
-.lana-case__evidence--research figcaption { bottom: 10px; }
-.lana-case__first-site { display: flex; flex-direction: column; gap: 10px; }
+.lana-case__research,
+.lana-case__architecture,
+.lana-case__design,
+.lana-case__next { display: flex; flex-direction: column; gap: 16px; }
+.lana-case__research { height: 839px; flex: 0 0 839px; }
+.lana-case__research h2,
+.lana-case__design h2,
+.lana-case__next h2 { margin: 0; }
+.lana-case__research-item { display: flex; flex-direction: column; gap: 16px; }
+.lana-case__research-item > p strong { color: #000; font-weight: 500; }
+.lana-case__research-image > img { width: 100%; height: auto; border-radius: 6px; }
+.lana-case__architecture { height: 437px; flex: 0 0 437px; padding-top: 0; }
+.lana-case__architecture > img { width: 100%; height: 369px; object-fit: cover; object-position: top; border-radius: 6px; }
+.lana-case__design { height: 1322px; flex: 0 0 1322px; }
+.lana-case__design-intro { display: flex; flex-direction: column; gap: 16px; height: 453px; flex: 0 0 453px; }
+.lana-case__design-intro h2 { margin: 0; }
+.lana-case__design-showcase { margin: 0; width: 100%; overflow: hidden; border-radius: 6px; }
+.lana-case__design-showcase img { width: 100%; height: auto; }
+.lana-case__final-screens { display: block; width: 100%; height: 836px; object-fit: cover; object-position: top; border-radius: 6px; }
+.lana-case__next { height: 175px; flex: 0 0 175px; }
 @media (max-width: 600px) {
-  .lana-case .elev-case__meta { grid-template-columns: 1fr; gap: var(--space-md); }
+  .lana-case .elev-case__meta { grid-template-columns: 1fr; gap: 16px; }
   .lana-case .elev-case__meta div { grid-column: 1; }
   .lana-case .elev-case__meta::before,
   .lana-case .elev-case__meta::after { display: none; }
-  .lana-case__metrics { gap: var(--space-xs); }
-  .lana-case__metrics > div { padding: var(--space-sm); }
+  .lana-case__metrics { gap: 8px; }
+  .lana-case__metrics > div { padding: 10px 8px; }
   .lana-case__metrics dt { font-size: 11px; }
   .lana-case__metrics dd { font-size: 24px; }
   .lana-case__metrics span { font-size: 10px; }
-  .lana-case__evidence--analytics,
-  .lana-case__evidence--research { padding: var(--space-lg) var(--space-md) 0; }
-  .lana-case__evidence figcaption { position: static; padding: var(--space-sm) 0; }
+  .lana-case__evidence figcaption { bottom: 10px; font-size: 10px; }
+  .lana-case__main-content { flex-basis: auto; height: auto; }
+  .lana-case__intro,
+  .lana-case__challenge,
+  .lana-case__starting-point,
+  .lana-case__data-heading,
+  .lana-case__highlight { height: auto; flex-basis: auto; }
+  .lana-case__first-site { height: auto; }
+  .lana-case__first-site > img { height: auto; }
+  .lana-case__baseline { height: auto; }
+  .lana-case__research,
+  .lana-case__architecture,
+  .lana-case__design,
+  .lana-case__next { height: auto; flex-basis: auto; }
+  .lana-case__design-intro { height: auto; flex-basis: auto; }
+  .lana-case__final-screens { height: auto; }
+  .lana-case__architecture > img { height: auto; aspect-ratio: 656 / 369; }
 }
 
 /* The clipped showcase is the final edge of the projects home. */

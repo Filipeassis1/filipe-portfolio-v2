@@ -47,24 +47,78 @@ export default function CartoonAvatar({ className = "simple-avatar" }) {
       schedule();
     };
 
+    // Devices without a precise hover pointer (touch/mobile) get a gentle
+    // randomized "idle glance" instead of following the mouse.
+    let idleFrame = 0;
+    let idleTimer = 0;
+    let idleTarget = { x: 0, y: 0 };
+    const idleCurrent = { x: 0, y: 0 };
+
+    const idleTick = () => {
+      idleCurrent.x += (idleTarget.x - idleCurrent.x) * 0.06;
+      idleCurrent.y += (idleTarget.y - idleCurrent.y) * 0.06;
+      const limit = Math.max(1, Math.hypot(idleCurrent.x, idleCurrent.y));
+      pupilsRef.current.forEach((pupil) => {
+        pupil?.setAttribute("transform", `translate(${25 * idleCurrent.x / limit} ${25 * idleCurrent.y / limit})`);
+      });
+      idleFrame = requestAnimationFrame(idleTick);
+    };
+    const pickIdleTarget = () => {
+      if (Math.random() < 0.25) {
+        idleTarget = { x: 0, y: 0 };
+      } else {
+        const angle = Math.random() * Math.PI * 2;
+        const radius = 0.3 + Math.random() * 0.7;
+        idleTarget = { x: Math.cos(angle) * radius, y: Math.sin(angle) * radius * 0.6 };
+      }
+      idleTimer = window.setTimeout(pickIdleTarget, 900 + Math.random() * 2200);
+    };
+    const stopIdle = () => {
+      cancelAnimationFrame(idleFrame);
+      idleFrame = 0;
+      window.clearTimeout(idleTimer);
+      idleTimer = 0;
+    };
+    const startIdle = () => {
+      if (idleFrame || motion.matches || pointer.matches) return;
+      idleCurrent.x = 0;
+      idleCurrent.y = 0;
+      pickIdleTarget();
+      idleFrame = requestAnimationFrame(idleTick);
+    };
+    const syncMode = () => {
+      reset();
+      stopIdle();
+      startIdle();
+    };
+    const onVisibility = () => {
+      reset();
+      if (document.hidden) stopIdle();
+      else startIdle();
+    };
+
     window.addEventListener("pointermove", move, { passive: true });
     document.documentElement.addEventListener("pointerleave", reset);
     window.addEventListener("blur", reset);
     window.addEventListener("scroll", schedule, { passive: true, capture: true });
     window.addEventListener("resize", schedule);
-    document.addEventListener("visibilitychange", reset);
-    motion.addEventListener("change", reset);
-    pointer.addEventListener("change", reset);
+    document.addEventListener("visibilitychange", onVisibility);
+    motion.addEventListener("change", syncMode);
+    pointer.addEventListener("change", syncMode);
+
+    startIdle();
+
     return () => {
       reset();
+      stopIdle();
       window.removeEventListener("pointermove", move);
       document.documentElement.removeEventListener("pointerleave", reset);
       window.removeEventListener("blur", reset);
       window.removeEventListener("scroll", schedule, true);
       window.removeEventListener("resize", schedule);
-      document.removeEventListener("visibilitychange", reset);
-      motion.removeEventListener("change", reset);
-      pointer.removeEventListener("change", reset);
+      document.removeEventListener("visibilitychange", onVisibility);
+      motion.removeEventListener("change", syncMode);
+      pointer.removeEventListener("change", syncMode);
     };
   }, []);
 

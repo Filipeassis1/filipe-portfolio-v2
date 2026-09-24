@@ -790,10 +790,11 @@ function LanaPage() {
       <main className="elev-case lana-case" aria-labelledby="lana-title">
         <article className="elev-case__shell" ref={reveal}>
           <CaseHeader current="Lana Automotiva" />
+          <div className="lana-case__main-content">
           <header className="elev-case__hero">
             <h1 id="lana-title">LANA AUTOMOTIVA</h1>
             <figure className="lana-case__image">
-              <img src="/assets/lana-case/cover.png" alt="Composição das novas páginas da Lana Automotiva" width="656" height="410" />
+              <img src="/assets/lana-case/cover.png" alt="Composição das páginas da Lana Automotiva" width="656" height="410" />
             </figure>
             <dl className="elev-case__meta" aria-label="Informações do projeto">
               <div><dt>Papel</dt><dd>Estratégia · UX/UI</dd></div>
@@ -801,20 +802,30 @@ function LanaPage() {
               <div><dt>Status</dt><dd>Em desenvolvimento</dd></div>
             </dl>
           </header>
-          <section className="elev-case__section" aria-labelledby="lana-project-title">
-            <h2 id="lana-project-title">O projeto</h2>
-            <p>O projeto nasceu para transformar campanhas de Google Ads em oportunidades para a marca. Após lançar uma primeira versão do site, usei dados de busca e desempenho das campanhas para orientar a arquitetura e o conteúdo da versão definitiva.</p>
+
+          <section className="elev-case__section lana-case__intro" aria-labelledby="lana-context-title">
+            <h2 id="lana-context-title">Contexto</h2>
+            <p>A Lana é uma autopeças e centro automotivo em Itabira que atende motoristas da região e frotas de empresas. O site nasceu com um objetivo imediato: sustentar as campanhas de Google Ads.</p>
           </section>
           <hr className="lana-case__divider" />
-          <section className="elev-case__section" aria-labelledby="lana-start-title">
-            <h2 id="lana-start-title">O ponto de partida</h2>
-            <p>A primeira versão do site foi criada para colocar as campanhas de Google Ads em operação e gerar uma base real de comportamento. Em vez de ser tratada como descarte, ela se tornou uma etapa de validação: colocou mensagens, serviços e caminhos de conversão diante de usuários reais antes do investimento na estrutura definitiva.</p>
+          <section className="elev-case__section lana-case__challenge" aria-labelledby="lana-challenge-title">
+            <h2 id="lana-challenge-title">O desafio</h2>
+            <p>Um site feito para receber tráfego pago funciona enquanto há investimento em mídia. O desafio era transformá-lo num canal próprio de aquisição: ser encontrado por quem busca serviços automotivos em Itabira, no Google e em respostas de IA, e converter esse visitante em contato, sem depender só de anúncio.</p>
           </section>
-          <figure className="lana-case__evidence lana-case__evidence--analytics">
-            <div className="lana-case__analytics-crop">
-              <img src="/assets/lana-case/analytics.png" alt="Relatório do GA4 com os canais de aquisição de tráfego da Lana" />
-            </div>
-            <figcaption>Imagem do GA4 da LANA.</figcaption>
+          <hr className="lana-case__divider" />
+          <section className="elev-case__section lana-case__starting-point" aria-labelledby="lana-start-title">
+            <h2 id="lana-start-title">O ponto de partida</h2>
+            <p>Entre 25 de junho e 22 de setembro, o site recebeu 650 usuários e mais de 3.000 eventos. A descoberta principal foi que a busca orgânica já era o maior canal de aquisição, com cerca de 34% dos usuários, à frente do tráfego pago, mesmo sem nenhuma estratégia de SEO. Havia demanda orgânica sendo capturada por acaso. A v2 foi desenhada para capturá-la de propósito.</p>
+          </section>
+          <figure className="lana-case__image lana-case__first-site">
+            <img src="/assets/lana-case/first-website.png" alt="Primeira versão do site da Lana Automotiva" width="656" height="300" />
+          </figure>
+
+          <section className="elev-case__section lana-case__data-heading" aria-labelledby="lana-data-title">
+            <h2 id="lana-data-title">O que os dados mostraram</h2>
+          </section>
+          <figure className="lana-case__image lana-case__analytics">
+            <img src="/assets/lana-case/analytics-panel.png" alt="Relatório do GA4: busca orgânica representa 33,64% dos usuários; a legenda identifica o painel como imagem do GA4 da Lana" width="656" height="300" />
           </figure>
           <section className="lana-case__baseline" aria-label="Dados do site atual">
             <dl className="lana-case__metrics">
@@ -825,18 +836,44 @@ function LanaPage() {
             <p className="lana-case__caption">Fonte: Google Analytics 4. Período analisado: 25 de junho - 22 de setembro.</p>
           </section>
           <p className="lana-case__highlight">O projeto evoluiu a partir de evidências. Analytics e mídia mostraram o comportamento; a pesquisa assistida por IA ampliou o diagnóstico e traduziu os achados em prioridades de conteúdo, arquitetura e produto.</p>
-          <figure className="lana-case__evidence lana-case__evidence--research">
-            <div className="lana-case__research-images">
-              <img src="/assets/lana-case/keywords.png" alt="Pesquisa de palavras-chave e volumes de busca para o setor automotivo" width="568" height="199" />
-              <img src="/assets/lana-case/competitors.png" alt="Análise de concorrentes e categorias de páginas em falta" width="568" height="199" />
-            </div>
-            <figcaption>Pesquisa de palavras-chave e análise de concorrentes com Claude Code e Firecrawl.</figcaption>
-          </figure>
-          <figure className="lana-case__image lana-case__first-site">
-            <img src="/assets/lana-case/first-website.png" alt="Primeira versão do site da Lana, com autopeças, pneus e serviços automotivos" width="656" height="300" />
-            <figcaption>Primeira versão do site, criada para atender às campanhas de Google Ads. Mesmo sem foco inicial em SEO, gerou vendas e atraiu buscas orgânicas.</figcaption>
-          </figure>
           <hr className="lana-case__divider" />
+          </div>
+
+          <section className="lana-case__research" aria-labelledby="lana-research-title">
+            <h2 id="lana-research-title">Pesquisa</h2>
+            <p>Com os dados como ponto de partida, aprofundei o diagnóstico em quatro frentes:</p>
+            <div className="lana-case__research-item">
+              <p><strong>Benchmark:</strong> Analisei 5 sites do setor automotivo, no panorama local e regional para entender padrões de navegação, oferta de serviços e conversão.</p>
+              <figure className="lana-case__image lana-case__research-image">
+                <img src="/assets/lana-case/research-benchmark.png" alt="Benchmark competitivo da Lana comparado a cinco sites do setor" width="656" height="287" />
+              </figure>
+            </div>
+            <div className="lana-case__research-item">
+              <p><strong>Personas:</strong> Identifiquei públicos com necessidades diferentes. O motorista local quer resolver rápido: saber se a Lana faz o serviço, onde fica e como falar com alguém. O gestor de frota quer confiança e previsibilidade para fechar uma parceria.</p>
+              <figure className="lana-case__image lana-case__research-image">
+                <img src="/assets/lana-case/research-personas.png" alt="Persona do motorista local, que busca confiança e informações rápidas antes de ir à oficina" width="656" height="287" />
+              </figure>
+            </div>
+          </section>
+
+          <section className="lana-case__architecture" aria-label="Arquitetura da informação">
+            <p>O sitemap reúne 22 páginas, incluindo subpáginas e blog. Oito são novas, com páginas de SEO dedicadas a cada serviço e ao conteúdo.</p>
+            <img src="/assets/lana-case/architecture.png" alt="Mapa de keywords locais com páginas, termos alvo e intenção de busca" />
+          </section>
+          <section className="lana-case__design" aria-labelledby="lana-design-title">
+            <hr className="lana-case__divider" />
+            <div className="lana-case__design-intro">
+              <h2 id="lana-design-title">Da pesquisa ao design</h2>
+              <figure className="lana-case__design-showcase">
+                <img src="/assets/lana-case/design-showcase.png" alt="Pranchas do redesign da Lana, com telas desktop e mobile para home, serviços, história, pneus e autopeças" width="656" height="408" />
+              </figure>
+            </div>
+            <img className="lana-case__final-screens" src="/assets/lana-case/final-screens.png" alt="Telas finais do redesign: página de serviços, cards de serviços automotivos, seção de peças originais, perguntas frequentes e rodapé" width="656" height="836" />
+          </section>
+          <section className="lana-case__next" aria-labelledby="lana-next-title">
+            <h2 id="lana-next-title">Próximos passos</h2>
+            <p>O projeto atualmente está pausado devido a conflitos com a agência, mas será implementado em breve. Os próximos passos são finalizar todas as telas de serviços e blog. Os números da v1 viram a linha de base para medir o impacto: crescimento da busca orgânica, cliques no WhatsApp por página e posicionamento das keywords prioritárias.</p>
+          </section>
         </article>
       </main>
     </Shell>
