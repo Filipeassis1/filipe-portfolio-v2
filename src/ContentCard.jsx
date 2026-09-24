@@ -1,10 +1,11 @@
+import { RevealItem } from "./Reveal.jsx";
+
 /** Shared Tool/Item contract: project, experience, or education content. */
 export default function ContentCard({ title, description, metadata, icon, iconClass = "", href }) {
-  const Element = href ? "a" : "article";
   const hasLogo = Boolean(icon);
 
   return (
-    <Element className={`content-card${hasLogo ? "" : " content-card--no-logo"}`} href={href}>
+    <RevealItem as={href ? "a" : "article"} className={`content-card${hasLogo ? "" : " content-card--no-logo"}`} href={href}>
       <span className="content-card__row">
         {hasLogo && (
           <span className={`content-card__logo ${iconClass}`} aria-hidden="true">
@@ -22,6 +23,6 @@ export default function ContentCard({ title, description, metadata, icon, iconCl
           <span className="content-card__arrow" aria-hidden="true"><img src="/assets/content-card/arrow-up-right.svg" alt="" width="20" height="20" /></span>
         </span>
       )}
-    </Element>
+    </RevealItem>
   );
 }

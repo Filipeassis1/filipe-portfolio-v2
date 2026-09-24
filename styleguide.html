@@ -1015,6 +1015,34 @@
           </div>
         </div>
       </section>
+      <section class="section" aria-labelledby="playground-marquee-guide">
+        <div class="container">
+          <article class="component-showcase">
+            <div class="component-showcase-header">
+              <div>
+                <span class="component-status">Home / Playground</span>
+                <h3 id="playground-marquee-guide">Marquee de telas</h3>
+                <p>Galeria visual de trabalhos em destaque, após o Playground. Referência Figma: 481:13272.</p>
+              </div>
+            </div>
+            <p>Componente React <code>&lt;PlaygroundMarquee /&gt;</code>, sem props. Imagens locais definidas em <code>src/PlaygroundMarquee.jsx</code>; cada item informa arquivo, texto alternativo, largura e altura.</p>
+            <dl>
+              <dt>Geometria</dt><dd>Container de até 1440 × 364px, com recorte inferior seco. Larguras 208 / 508 / 508 / 208 / 508 / 208px; alturas 418.950 / 317.5 / 395.111 / 450.133 / 513.586 / 433.067px. Alinhamento superior e dimensões preservadas no mobile.</dd>
+              <dt>Espaçamento</dt><dd>32px após Playground (--space-xl). --marquee-gap → --space-md (16px). Faixa de 2228px; --marquee-cycle: 2244px inclui o intervalo entre repetições.</dd>
+              <dt>Movimento</dt><dd>--marquee-duration: 62.62s; direção para a esquerda, linear e contínua. Sem CTA, pausa no hover ou links nas telas.</dd>
+              <dt>Acessibilidade</dt><dd>Comportamento em React/CSS. Cópias ocultas de leitores de tela. Com movimento reduzido, uma única sequência estática permite rolagem horizontal por toque ou trackpad.</dd>
+            </dl>
+            <div class="playground-marquee__viewport" tabindex="0" aria-label="Exemplo estático das telas do Playground">
+              <div class="playground-marquee__group" style="gap: var(--space-md); width: max-content;">
+                <img src="/assets/playground-marquee/assistant.png" alt="Assistente de voz" width="208" height="419" loading="lazy" />
+                <img src="/assets/playground-marquee/lana-404.png" alt="Lana Automotiva — página não encontrada" width="508" height="318" loading="lazy" />
+                <img src="/assets/playground-marquee/hubtime-order.png" alt="HubTime — nova ordem de serviço" width="508" height="395" loading="lazy" />
+                <img src="/assets/playground-marquee/grape.png" alt="Grape — gestão de mesas" width="208" height="451" loading="lazy" />
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer" aria-labelledby="footer-title">

@@ -82,6 +82,7 @@
 
 /* Simple portfolio home - Figma node 174:317 */
 .simple-home-page {
+  container-type: inline-size;
   min-height: 100vh;
   background: #fff;
   color: #171717;
@@ -402,7 +403,9 @@
   border-radius: var(--content-card-radius);
   font-family: var(--font-body);
   text-decoration: none;
-  transition: background-color var(--duration-fast) var(--ease-standard);
+  transition:
+    background-color var(--duration-base) var(--ease-standard),
+    padding var(--duration-base) var(--ease-standard);
 }
 
 .content-card:is(:hover, :focus-visible) {
@@ -535,22 +538,142 @@
   flex: 0 0 18px;
   height: 18px;
   opacity: 0;
-  transition: opacity var(--duration-fast) var(--ease-standard);
+  transform: translate(-4px, 4px);
+  transition:
+    opacity var(--duration-base) var(--ease-standard),
+    transform var(--duration-base) var(--ease-standard);
 }
 
 .content-card__arrow img { max-width: none; }
-.content-card:is(:hover, :focus-visible) .content-card__arrow { opacity: 1; }
+
+.content-card:is(:hover, :focus-visible) .content-card__arrow {
+  opacity: 1;
+  transform: none;
+}
 
 @media (hover: none) {
-  .content-card[href] .content-card__arrow { opacity: 1; }
+  .content-card[href] .content-card__arrow { opacity: 1; transform: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .content-card, .content-card__arrow { transition: none; }
+  .content-card__arrow { transform: none; }
 }
 
 .simple-section--experience { padding-bottom: var(--space-xl); }
 .simple-experience-list { padding-bottom: 0; }
+
+/* Page curtain: covers from first paint (html[data-curtain]) until React takes over. */
+html[data-curtain]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: var(--color-neutral-950);
+}
+
+.page-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  background: var(--color-neutral-950);
+  pointer-events: none;
+}
+
+.page-curtain__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-neutral-000);
+  text-align: center;
+}
+
+.page-curtain__mask {
+  display: block;
+  overflow: hidden;
+  padding: 0 .15em .15em;
+}
+
+.page-curtain__line { display: block; }
+
+.page-curtain__line--eyebrow {
+  font: 300 12px/16px Inter, sans-serif;
+  letter-spacing: .96px;
+  text-transform: uppercase;
+  color: var(--color-neutral-500);
+}
+
+.page-curtain__line--name {
+  font: 400 42px/1.3 "Grape Nuts", cursive;
+}
+
+/* Figma 481:13272: 2228px strip, full-bleed to the viewport edge, height 364px. */
+.playground-marquee {
+  --marquee-gap: var(--space-md);
+  --marquee-cycle: 2244px;
+  --marquee-duration: 62.62s;
+  --marquee-fade: clamp(32px, 8vw, 180px);
+  width: 100cqw;
+  margin-inline-start: calc((100% - 100cqw) / 2);
+}
+
+.playground-marquee__viewport {
+  height: 364px;
+  overflow: hidden;
+  user-select: none;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--marquee-fade),
+    #000 calc(100% - var(--marquee-fade)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--marquee-fade),
+    #000 calc(100% - var(--marquee-fade)),
+    transparent 100%
+  );
+}
+
+.playground-marquee__track {
+  display: flex;
+  width: max-content;
+  margin-inline-start: min(0px, calc(100cqw / 2 - 1134px));
+  animation: playground-marquee-scroll var(--marquee-duration) linear infinite;
+}
+
+.playground-marquee__group {
+  display: flex;
+  flex: none;
+  align-items: flex-start;
+  gap: var(--marquee-gap);
+  padding-inline-end: var(--marquee-gap);
+}
+
+.playground-marquee__group img {
+  flex: none;
+  max-width: none;
+  object-fit: fill;
+}
+
+@keyframes playground-marquee-scroll {
+  to { transform: translateX(calc(-1 * var(--marquee-cycle))); }
+}
+
+@media (max-width: 760px) {
+  .playground-marquee__track { margin-inline-start: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .playground-marquee__viewport { overflow-x: auto; }
+  .playground-marquee__track { animation: none; margin-inline-start: 0; }
+  .playground-marquee__group[aria-hidden="true"] { display: none; }
+}
 
 @media (max-width: 760px) {
   .simple-home {
@@ -7197,3 +7320,6 @@ html[data-theme="dark"] .theme-toggle .theme-icon-sun {
   .lana-case__evidence--research { padding: var(--space-lg) var(--space-md) 0; }
   .lana-case__evidence figcaption { position: static; padding: var(--space-sm) 0; }
 }
+
+/* The clipped showcase is the final edge of the projects home. */
+.simple-home--projects { padding-bottom: 0; }

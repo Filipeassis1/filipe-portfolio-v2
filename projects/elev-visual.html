@@ -11,6 +11,16 @@
       href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&family=Grape+Nuts&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+    <script>
+      (() => {
+        try {
+          if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          if (sessionStorage.getItem("page-transition") === "1") {
+            document.documentElement.dataset.curtain = "enter";
+          }
+        } catch (error) {}
+      })();
+    </script>
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>

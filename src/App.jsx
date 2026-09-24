@@ -2,6 +2,11 @@ import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion
 import { useEffect, useRef, useState } from "react";
 import CartoonAvatar from "./CartoonAvatar.jsx";
 import ContentCard from "./ContentCard.jsx";
+import PlaygroundMarquee from "./PlaygroundMarquee.jsx";
+import PageCurtain from "./PageCurtain.jsx";
+import { RevealGroup, RevealItem, useRevealScope } from "./Reveal.jsx";
+
+const caseRevealSelector = ".elev-case__hero > *, .elev-case__shell > :not(.case-header, .elev-case__hero)";
 
 const mainProjects = [
   {
@@ -155,20 +160,18 @@ function Shell({ pageClass, children }) {
 
 function MetaBar() {
   return (
-    <div className="simple-meta-bar" aria-label="Localização e redes sociais">
+    <RevealItem className="simple-meta-bar" aria-label="Localização e redes sociais">
       <p>
         Belo Horizonte , Minas Gerais <span>/</span> Brasil
       </p>
       <nav aria-label="Redes sociais">
-        <a href="#">X</a>
+        <a href="https://x.com/0x1flp" target="_blank" rel="noopener noreferrer">X</a>
         <span>/</span>
-        <a href="#">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/filipe-assis-2040741a1/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <span>/</span>
-        <a href="#">Dribbble</a>
-        <span>/</span>
-        <a href="#">Instagram</a>
+        <a href="https://www.instagram.com/filipeassis1_/" target="_blank" rel="noopener noreferrer">Instagram</a>
       </nav>
-    </div>
+    </RevealItem>
   );
 }
 
@@ -197,15 +200,30 @@ const education = [
   }
 ];
 
+const RESUME_URL = "https://drive.google.com/file/d/1adx8Va011QATMOkfb6hxFY7n1dw8V9de/view?usp=sharing";
+const CONTACT_EMAIL = "filipeassisr@gmail.com";
+
 function HomePage() {
   const [activeTab, setActiveTab] = useState("projetos");
+  const [emailCopied, setEmailCopied] = useState(false);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(CONTACT_EMAIL);
+      setEmailCopied(true);
+      setTimeout(() => setEmailCopied(false), 2000);
+    } catch (error) {
+      // Clipboard API unavailable; nothing to fall back to here.
+    }
+  };
 
   return (
     <Shell pageClass="simple-home-page">
-      <main className="simple-home" aria-labelledby="home-title">
+      <main className={`simple-home ${activeTab === "projetos" ? "simple-home--projects" : ""}`} aria-labelledby="home-title">
         <div className="simple-home__shell">
+          <RevealGroup>
           <section className="simple-intro" aria-label="Apresentação">
-            <div className="simple-intro__masthead">
+            <RevealItem className="simple-intro__masthead">
               <CartoonAvatar />
               <img
                 className="simple-team-mark"
@@ -214,9 +232,9 @@ function HomePage() {
                 width="40"
                 height="40"
               />
-            </div>
+            </RevealItem>
 
-            <div className="simple-intro__copy">
+            <RevealItem className="simple-intro__copy">
               <p className="simple-eyebrow">
                 Olá, eu sou <span className="wave-emoji" aria-hidden="true">👋</span>
               </p>
@@ -224,13 +242,14 @@ function HomePage() {
               <p className="simple-lede">
                 Eu desenho interfaces focadas em clareza, usabilidade e conversão.
               </p>
-            </div>
+            </RevealItem>
 
-            <div className="simple-actions" aria-label="Ações principais">
-              <button
-                type="button"
+            <RevealItem className="simple-actions" aria-label="Ações principais">
+              <a
                 className="simple-button simple-button--ghost"
-                onClick={() => setActiveTab("experiencia")}
+                href={RESUME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <span>Currículum</span>
                 <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
@@ -239,22 +258,28 @@ function HomePage() {
                   <path d="M7 10.25h6" />
                   <path d="M7 13.25h4.25" />
                 </svg>
-              </button>
-              <a className="simple-button simple-button--primary" href="mailto:hello@studio.com">
-                <span>Entre em contato</span>
-                <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
-                  <path d="M5.83 14.17 14.17 5.83" />
-                  <path d="M6.67 5.83h7.5v7.5" />
-                </svg>
               </a>
-            </div>
+              <button type="button" className="simple-button simple-button--primary" onClick={handleCopyEmail}>
+                <span aria-live="polite">{emailCopied ? "E-mail copiado!" : "Entre em contato"}</span>
+                {emailCopied ? (
+                  <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                    <path d="M6.67 13.33H5a1.67 1.67 0 0 1-1.67-1.67V5a1.67 1.67 0 0 1 1.67-1.67h6.67a1.67 1.67 0 0 1 1.67 1.67v1.67m-5 10h6.67a1.67 1.67 0 0 0 1.67-1.67v-6.67a1.67 1.67 0 0 0-1.67-1.67h-6.67a1.67 1.67 0 0 0-1.67 1.67v6.67a1.67 1.67 0 0 0 1.67 1.67z" />
+                  </svg>
+                ) : (
+                  <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+                    <path d="M5.83 14.17 14.17 5.83" />
+                    <path d="M6.67 5.83h7.5v7.5" />
+                  </svg>
+                )}
+              </button>
+            </RevealItem>
           </section>
 
           <MetaBar />
 
-          <hr className="simple-divider" />
+          <RevealItem as="hr" className="simple-divider" />
 
-          <div className="simple-tabs" role="tablist" aria-label="Seções do portfólio">
+          <RevealItem className="simple-tabs" role="tablist" aria-label="Seções do portfólio">
             <button
               type="button"
               role="tab"
@@ -288,43 +313,49 @@ function HomePage() {
             >
               Educação
             </button>
-          </div>
+          </RevealItem>
+          </RevealGroup>
 
           {activeTab === "projetos" ? (
-            <section
-              id="panel-projetos"
-              className="simple-section"
-              role="tabpanel"
-              aria-labelledby="tab-projetos"
-            >
-              <div className="simple-project-list">
-                {mainProjects.map((project, projectIndex) => (
-                  <ProjectCard project={project} key={`${project.title}-${project.href}-${projectIndex}`} />
-                ))}
-              </div>
+            <RevealGroup key="projetos">
+              <section
+                id="panel-projetos"
+                className="simple-section"
+                role="tabpanel"
+                aria-labelledby="tab-projetos"
+              >
+                <div className="simple-project-list">
+                  {mainProjects.map((project, projectIndex) => (
+                    <ProjectCard project={project} key={`${project.title}-${project.href}-${projectIndex}`} />
+                  ))}
+                </div>
 
-              <hr className="simple-divider" />
+                <RevealItem as="hr" className="simple-divider" />
 
-              <div className="simple-project-list">
-                <p className="simple-project-group-label">Playground</p>
-                {playgroundProjects.map((project, projectIndex) => (
-                  <ProjectCard project={project} key={`${project.title}-${project.href}-${projectIndex}`} />
-                ))}
-              </div>
-            </section>
+                <div className="simple-project-list">
+                  <RevealItem as="p" className="simple-project-group-label">Playground</RevealItem>
+                  {playgroundProjects.map((project, projectIndex) => (
+                    <ProjectCard project={project} key={`${project.title}-${project.href}-${projectIndex}`} />
+                  ))}
+                </div>
+                <PlaygroundMarquee />
+              </section>
+            </RevealGroup>
           ) : (
-            <section
-              id={`panel-${activeTab}`}
-              className="simple-section simple-section--experience"
-              role="tabpanel"
-              aria-labelledby={`tab-${activeTab}`}
-            >
-              <div className="simple-project-list simple-experience-list">
-                {(activeTab === "experiencia" ? experiences : education).map((item) => (
-                  <ContentCard {...item} key={item.title} />
-                ))}
-              </div>
-            </section>
+            <RevealGroup key={activeTab}>
+              <section
+                id={`panel-${activeTab}`}
+                className="simple-section simple-section--experience"
+                role="tabpanel"
+                aria-labelledby={`tab-${activeTab}`}
+              >
+                <div className="simple-project-list simple-experience-list">
+                  {(activeTab === "experiencia" ? experiences : education).map((item) => (
+                    <ContentCard {...item} key={item.title} />
+                  ))}
+                </div>
+              </section>
+            </RevealGroup>
           )}
         </div>
       </main>
@@ -752,10 +783,12 @@ function LanaGrowthSystem() {
 }
 
 function LanaPage() {
+  const reveal = useRevealScope(caseRevealSelector);
+
   return (
     <Shell pageClass="elev-case-page lana-case-page">
       <main className="elev-case lana-case" aria-labelledby="lana-title">
-        <article className="elev-case__shell">
+        <article className="elev-case__shell" ref={reveal}>
           <CaseHeader current="Lana Automotiva" />
           <header className="elev-case__hero">
             <h1 id="lana-title">LANA AUTOMOTIVA</h1>
@@ -811,10 +844,12 @@ function LanaPage() {
 }
 
 function ElevVisualPage() {
+  const reveal = useRevealScope(caseRevealSelector);
+
   return (
     <Shell pageClass="elev-case-page">
       <main className="elev-case" aria-labelledby="case-title">
-        <article className="elev-case__shell">
+        <article className="elev-case__shell" ref={reveal}>
           <CaseHeader current="Elev Visual" />
 
           <header className="elev-case__hero">
@@ -1245,10 +1280,12 @@ function HubtimeComponentsShowcase() {
 }
 
 function HubtimePage() {
+  const reveal = useRevealScope(caseRevealSelector);
+
   return (
     <Shell pageClass="elev-case-page">
       <main className="elev-case" aria-labelledby="hubtime-title">
-        <article className="elev-case__shell">
+        <article className="elev-case__shell" ref={reveal}>
           <CaseHeader current="HubTime" />
 
           <header className="elev-case__hero">
@@ -1371,10 +1408,12 @@ function NauraParallaxCard({ src, alt, direction = 1 }) {
 }
 
 function NauraCoutoPage() {
+  const reveal = useRevealScope(caseRevealSelector);
+
   return (
     <Shell pageClass="elev-case-page">
       <main className="elev-case naura-case" aria-labelledby="naura-title">
-        <article className="elev-case__shell">
+        <article className="elev-case__shell" ref={reveal}>
           <CaseHeader current="Naura Couto" />
 
           <header className="elev-case__hero">
@@ -1494,7 +1533,7 @@ function NauraCoutoPage() {
   );
 }
 
-export default function App() {
+function CurrentPage() {
   if (["/project", "/project.html"].includes(window.location.pathname)) {
     return <LanaPage />;
   }
@@ -1512,4 +1551,13 @@ export default function App() {
   }
 
   return <HomePage />;
+}
+
+export default function App() {
+  return (
+    <>
+      <PageCurtain />
+      <CurrentPage />
+    </>
+  );
 }
