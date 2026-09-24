@@ -7,8 +7,10 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: "index.html",
+        lana: "project.html",
         elevVisual: "projects/elev-visual.html",
-        hubtime: "projects/hubtime.html"
+        hubtime: "projects/hubtime.html",
+        nauraCouto: "projects/naura-couto.html"
       }
     }
   }

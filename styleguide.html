@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Styleguide & Design System | Filipe Assis</title>
+    <link rel="icon" type="image/png" sizes="160x160" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -695,7 +696,7 @@
                     <div>
                       <span class="component-status">03 / Cards</span>
                       <h3>Cards de conteúdo</h3>
-                      <p>Base para projetos, ferramentas, posts do blog, métricas e módulos de resumo.</p>
+                      <p>Tool/Item: estrutura compartilhada entre projetos, experiências e certificações.</p>
                     </div>
                     <div class="component-actions">
                       <button class="component-detail-button" type="button" data-component-toggle="details" aria-label="Ver detalhes técnicos">
@@ -704,70 +705,39 @@
                       <button class="component-code-button" type="button" data-component-toggle="code">View code</button>
                     </div>
                   </div>
-                  <div class="component-preview card-preview inspect-preview">
-                    <div class="inspectable card-inspectable" data-padding="14px" data-size="fluid x 220" data-font="Inter 20 / 600" data-radius="14px" data-inspect-name="Project card" data-inspect-height="220px preview" data-inspect-padding="14px" data-inspect-radius="14px" data-inspect-font="Inter 20px 600" data-inspect-icon="media slot 70px" data-inspect-gap="12px" data-inspect-bg="--surface" data-inspect-fg="--ink" data-inspect-hover="media/ribbon motion">
-                      <article class="sg-card sg-card-project">
-                        <div class="sg-card-visual"></div>
-                        <span>Case</span>
-                        <h4>Game hub</h4>
-                        <p>Projeto editorial com processo, imagens e métricas.</p>
-                      </article>
-                    </div>
-                    <div class="inspectable card-inspectable" data-padding="14px" data-size="fluid x 150" data-font="Inter 20 / 600" data-radius="14px" data-inspect-name="Tool card" data-inspect-height="150px min" data-inspect-padding="14px" data-inspect-radius="14px" data-inspect-font="Inter 20px 600" data-inspect-icon="44 x 44 slot" data-inspect-gap="12px" data-inspect-bg="--surface" data-inspect-fg="--ink" data-inspect-hover="border/surface emphasis">
-                      <article class="sg-card sg-card-tool">
-                        <div class="sg-mini-icon"></div>
-                        <div>
-                          <h4>Tool card</h4>
-                          <p>Ícone, nome e descrição curta.</p>
-                        </div>
-                      </article>
-                    </div>
-                    <div class="inspectable card-inspectable" data-padding="14px" data-size="fluid x 150" data-font="Inter 20 / 600" data-radius="14px" data-inspect-name="Post card" data-inspect-height="150px min" data-inspect-padding="14px" data-inspect-radius="14px" data-inspect-font="Inter 20px 600" data-inspect-icon="none" data-inspect-gap="6-12px" data-inspect-bg="--surface" data-inspect-fg="--ink" data-inspect-hover="title/link emphasis">
-                      <article class="sg-card sg-card-post">
-                        <span>Blog</span>
-                        <h4>Design systems para portfolios</h4>
-                        <p>Post card para artigos futuros.</p>
-                      </article>
-                    </div>
+                  <div class="component-preview">
+                    <a class="content-card" href="/projects/hubtime.html">
+                      <span class="content-card__row">
+                        <span class="content-card__logo"><img src="/assets/content-card/hubtime.png" alt="" /></span>
+                        <span class="content-card__content">
+                          <span class="content-card__title">HubTime</span>
+                          <span class="content-card__description">Participação ativa na construção de uma plataforma de gestão, desde reuniões com idealizadores e PM, levantamento de requisitos e definição de fluxos até a criação das interfaces e estruturação do Design System</span>
+                        </span>
+                      </span>
+                      <span class="content-card__footer">
+                        <span class="content-card__metadata">Design System · UI Design · Alinhamentos com Stakeholders · IA</span>
+                        <span class="content-card__arrow" aria-hidden="true"><img src="/assets/content-card/arrow-up-right.svg" alt="" width="20" height="20" /></span>
+                      </span>
+                    </a>
                   </div>
+                  <p>Default: transparente, padding vertical de 16px e horizontal de 0. Hover: padding de 16px, fundo neutro e seta em todas as variantes. Links também mostram esse estado no foco. Em telas de toque, a seta permanece visível. Altura fluida, sem truncar texto. Experiências e certificações usam os logos estáticos do Figma e o mesmo estado visual de hover. Sem destino, permanecem article.</p>
                   <div class="component-details" data-component-details hidden>
-                    <div class="inspect-panel">
-                      <div class="box-model">
-                        <span class="box-label box-margin">margin: 0</span>
-                        <span class="box-label box-border">border: 1px</span>
-                        <span class="box-label box-padding">padding: <b data-inspect-output="padding">14px</b></span>
-                        <span class="box-content">content</span>
-                      </div>
-                      <dl>
-                        <div><dt>Variant</dt><dd data-inspect-output="name">Project card</dd></div>
-                        <div><dt>Height</dt><dd data-inspect-output="height">220px preview</dd></div>
-                        <div><dt>Padding</dt><dd data-inspect-output="padding">14px</dd></div>
-                        <div><dt>Radius</dt><dd data-inspect-output="radius">14px</dd></div>
-                        <div><dt>Font</dt><dd data-inspect-output="font">Inter 20px 600</dd></div>
-                        <div><dt>Media/Icon</dt><dd data-inspect-output="icon">media slot 70px</dd></div>
-                        <div><dt>Gap</dt><dd data-inspect-output="gap">12px</dd></div>
-                        <div><dt>Color</dt><dd><span data-inspect-output="bg">--surface</span> / <span data-inspect-output="fg">--ink</span></dd></div>
-                        <div><dt>Hover</dt><dd data-inspect-output="hover">media/ribbon motion</dd></div>
-                      </dl>
-                    </div>
-                    <div class="token-hierarchy" aria-label="Hierarquia de tokens do card">
-                      <div class="token-tree">
-                        <p>card</p>
-                        <ul>
-                          <li><span>base</span><ul><li><code>variant</code><strong data-inspect-output="name">Project card</strong></li><li><code>height</code><strong data-inspect-output="height">220px preview</strong></li><li><code>radius</code><strong data-inspect-output="radius">14px</strong></li></ul></li>
-                          <li><span>typography</span><ul><li><code>title</code><strong data-inspect-output="font">Inter 20px 600</strong></li><li><code>body</code><strong>14px / 1.45</strong></li><li><code>meta</code><strong>DM Mono 11px</strong></li></ul></li>
-                          <li><span>spacing</span><ul><li><code>padding</code><strong data-inspect-output="padding">14px</strong></li><li><code>gap</code><strong data-inspect-output="gap">12px</strong></li></ul></li>
-                          <li><span>colors</span><ul><li><code>bg</code><strong data-inspect-output="bg">--surface</strong></li><li><code>fg</code><strong data-inspect-output="fg">--ink</strong></li><li><code>border</code><strong>--border-subtle</strong></li></ul></li>
-                          <li><span>states</span><ul><li><code>hover</code><strong data-inspect-output="hover">media/ribbon motion</strong></li></ul></li>
-                        </ul>
-                      </div>
-                    </div>
+                    <dl>
+                      <dt>Contrato ORIGIN</dt><dd>ContentCard: title, description?, metadata?, icon?, iconClass?, href?.</dd>
+                      <dt>Comportamento</dt><dd>Link HTML nativo para navegação; article para conteúdo informativo. Foco visível e respeito a prefers-reduced-motion.</dd>
+                      <dt>Espaçamento</dt><dd>--content-card-padding → --space-md (16px); --content-card-gap → --space-sm (12px). Texto com gap --space-2xs (4px).</dd>
+                      <dt>Geometria</dt><dd>--content-card-radius: 12px; --content-card-logo-size → --space-xl (32px); --content-card-logo-radius: 5.333px. Rodapé alinhado ao texto (44px).</dd>
+                      <dt>Tipografia</dt><dd>--font-body (Inter). Título 16/24 medium; descrição 12/18 regular; metadados 12/18 medium.</dd>
+                      <dt>Cores locais do componente</dt><dd>--content-card-title: #0a0a0a; --content-card-description: #525252; --content-card-metadata: #171717; --content-card-border: #e5e5e5; --content-card-bg-hover: #f5f5f5.</dd>
+                    </dl>
                   </div>
-                  <pre class="component-code" data-component-code hidden><code>&lt;article class="sg-card"&gt;
-  &lt;span&gt;Case&lt;/span&gt;
-  &lt;h4&gt;Game hub&lt;/h4&gt;
-  &lt;p&gt;Projeto editorial com processo.&lt;/p&gt;
-&lt;/article&gt;</code></pre>
+                  <pre class="component-code" data-component-code hidden><code>&lt;ContentCard
+  title="HubTime"
+  description="Participação ativa na construção de uma plataforma de gestão…"
+  metadata="Design System · UI Design · Alinhamentos com Stakeholders · IA"
+  icon="/assets/content-card/hubtime.png"
+  href="/projects/hubtime.html"
+/&gt;</code></pre>
                 </article>
 
                 <article class="component-showcase" data-component-panel="article" hidden>
@@ -888,6 +858,16 @@
                     </div>
                     <div class="token-hierarchy"><div class="token-tree"><p>media</p><ul><li><span>base</span><ul><li><code>selected</code><strong data-inspect-output="name">Hero media</strong></li><li><code>ratio</code><strong data-inspect-output="height">aspect 16 / 8</strong></li><li><code>radius</code><strong data-inspect-output="radius">14px</strong></li></ul></li><li><span>asset</span><ul><li><code>type</code><strong data-inspect-output="icon">image/video</strong></li><li><code>fit</code><strong>cover/contain</strong></li></ul></li><li><span>spacing</span><ul><li><code>padding</code><strong data-inspect-output="padding">0</strong></li><li><code>gap</code><strong data-inspect-output="gap">0</strong></li></ul></li><li><span>colors</span><ul><li><code>bg</code><strong data-inspect-output="bg">media surface</strong></li><li><code>border</code><strong>--border-subtle</strong></li></ul></li><li><span>states</span><ul><li><code>hover</code><strong data-inspect-output="hover">optional scale/none</strong></li></ul></li></ul></div></div>
                   </div>
+                  <details>
+                    <summary>Case Lana: painéis de evidência</summary>
+                    <p>Imagens preservam os recortes do Figma. Capa 656 × 410; primeira versão 656 × 300. Painéis de pesquisa usam superfície #fafafa, raio 6px e recuo 44px. No mobile, o recuo usa --space-md e as legendas entram no fluxo. Métricas usam --space-md no espaçamento e --space-sm entre rótulo, valor e unidade. Conteúdo estático com figure/figcaption e dl.</p>
+                    <div class="elev-case-page lana-case">
+                      <figure class="lana-case__image">
+                        <img src="/assets/lana-case/cover.png" alt="Exemplo de capa do case Lana" width="656" height="410" loading="lazy" />
+                        <figcaption>Capa do case Lana, preservando a proporção original.</figcaption>
+                      </figure>
+                    </div>
+                  </details>
                   <pre class="component-code" data-component-code hidden><code>&lt;div class="case-image-slot case-image-slot-large"&gt;
   &lt;span&gt;Imagem do projeto&lt;/span&gt;
 &lt;/div&gt;</code></pre>
@@ -987,6 +967,23 @@
                       Usar display type apenas no hero e preservar contraste
                       alto nos cards de projeto.
                     </p>
+                  </article>
+                  <article>
+                    <span class="component-status">Homepage / Avatar</span>
+                    <h3>Avatar cartoon</h3>
+                    <span class="simple-avatar cartoon-avatar" role="img" aria-label="Avatar em cartoon de Filipe Assis">
+                      <svg class="cartoon-avatar__canvas" viewBox="0 0 1162 1354" aria-hidden="true">
+                        <defs>
+                          <mask id="guide-eye-left" maskUnits="userSpaceOnUse" x="385" y="537" width="154" height="106" style="mask-type: alpha"><image href="/assets/avatar/eye-left-mask.svg" x="385" y="537" width="154" height="106" /></mask>
+                          <mask id="guide-eye-right" maskUnits="userSpaceOnUse" x="643" y="527" width="159" height="116" style="mask-type: alpha"><image href="/assets/avatar/eye-right-mask.svg" x="643" y="527" width="159" height="116" /></mask>
+                        </defs>
+                        <image href="/assets/avatar/base.png" width="1162" height="1354" />
+                        <image href="/assets/avatar/pupil.svg" x="410" y="498" width="104" height="104" mask="url(#guide-eye-left)" />
+                        <image href="/assets/avatar/pupil.svg" x="670" y="494" width="104" height="104" mask="url(#guide-eye-right)" />
+                      </svg>
+                    </span>
+                    <p>80 px no desktop e 64 px até 760 px, com recorte circular e fundo <code>--color-neutral-100</code>. Assets originais do Figma, base e pupilas alinhadas no mesmo canvas.</p>
+                    <p>Uso em React: <code>&lt;CartoonAvatar /&gt;</code>, sem props. Na home, as pupilas acompanham o mouse dentro das máscaras, voltam ao repouso ao sair da janela e ficam estáticas com toque ou redução de movimento. Prévia acima em repouso; interação nativa com Pointer Events e requestAnimationFrame.</p>
                   </article>
                   <article>
                     <span class="component-status">Cases</span>
