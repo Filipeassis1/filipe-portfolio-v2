@@ -10,17 +10,6 @@ const caseRevealSelector = ".elev-case__hero > *, .elev-case__shell > :not(.case
 
 const mainProjects = [
   {
-    title: "Lana Automotiva",
-    metadata: "Design System · UI Design · Alinhamentos com Stakeholders",
-    description:
-      "Um website construído a partir de pesquisa, UX e estratégia de conteúdo, conectando experiência, SEO e conversão para ampliar a presença digital da Lana.",
-    href: "/project.html",
-    icon: "/assets/content-card/lana.svg",
-    iconClass: "simple-project__icon--lana",
-    width: 16,
-    height: 16
-  },
-  {
     title: "HubTime",
     metadata: "Design System · UI Design · Alinhamentos com Stakeholders · IA",
     description:
@@ -29,27 +18,38 @@ const mainProjects = [
     icon: "/assets/content-card/hubtime.png",
     width: 24,
     height: 24
+  },
+  {
+    title: "Lana Automotiva",
+    metadata: "Design System · UI Design · Pesquisa · IA",
+    description:
+      "Um website construído a partir de pesquisa, UX e estratégia de conteúdo, conectando experiência, SEO e conversão para ampliar a presença digital da Lana.",
+    href: "/project.html",
+    icon: "/assets/content-card/lana.svg",
+    iconClass: "simple-project__icon--lana",
+    width: 16,
+    height: 16
   }
 ];
 
 const playgroundProjects = [
   {
-    title: "Elev Visual",
-    badge: "Landing page",
-    description: "Do figma ao código, criação de assets até a implementação do website com IA",
-    href: "/projects/elev-visual.html",
-    icon: "/assets/figma-simple-home/elev-logo.png",
-    iconClass: "simple-project__icon--elev-mark"
-  },
-  {
     title: "Naura Couto",
-    badge: "Páginas e estratégias",
+    metadata: "Landing Page · UI Design · IA · Estratégia",
     description:
       "Design, desenvolvimento e estratégia de tráfego conectados para transformar páginas em canais de aquisição e crescimento.",
     href: "/projects/naura-couto.html",
-    icon: "/assets/figma-simple-home/icon-mark-navy.svg",
+    icon: "/assets/content-card/naura-couto.svg",
     width: 24,
     height: 24
+  },
+  {
+    title: "Elev Visual",
+    metadata: "Landing Page · UI Design · IA",
+    description: "Do figma ao código, criação de assets até a implementação do website com IA",
+    href: "/projects/elev-visual.html",
+    icon: "/assets/content-card/elev.svg",
+    iconClass: "simple-project__icon--elev-mark"
   }
 ];
 
