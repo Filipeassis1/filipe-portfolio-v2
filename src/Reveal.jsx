@@ -14,6 +14,19 @@ const viewport = { once: true, margin: MARGIN };
 
 const GroupContext = createContext(null);
 
+// Touch layouts keep content visible without waiting for viewport observers.
+function useImmediateContent() {
+  const [immediate, setImmediate] = useState(() => window.matchMedia("(max-width: 760px), (hover: none)").matches);
+  useLayoutEffect(() => {
+    const query = window.matchMedia("(max-width: 760px), (hover: none)");
+    const sync = () => setImmediate(query.matches);
+    query.addEventListener("change", sync);
+    sync();
+    return () => query.removeEventListener("change", sync);
+  }, []);
+  return immediate;
+}
+
 export function RevealGroup({ children }) {
   const [group] = useState(() => ({ mountedAt: performance.now(), count: 0 }));
   return <GroupContext.Provider value={group}>{children}</GroupContext.Provider>;
@@ -39,9 +52,10 @@ const variants = {
 export function useRevealScope(selector) {
   const ref = useRef(null);
   const reduced = useReducedMotion();
+  const immediate = useImmediateContent();
 
   useLayoutEffect(() => {
-    if (reduced || !ref.current) return undefined;
+    if (reduced || immediate || !ref.current) return undefined;
     const mountedAt = performance.now();
     let burst = 0;
     const items = [...ref.current.querySelectorAll(selector)];
@@ -72,7 +86,7 @@ export function useRevealScope(selector) {
         el.style.transform = "";
       });
     };
-  }, [selector, reduced]);
+  }, [selector, reduced, immediate]);
 
   return ref;
 }
@@ -81,6 +95,7 @@ export function RevealItem({ as = "div", children, ...props }) {
   const group = useContext(GroupContext);
   const indexRef = useRef(0);
   const reduced = useReducedMotion();
+  const immediate = useImmediateContent();
   const Component = motion[as];
 
   useLayoutEffect(() => {
@@ -90,6 +105,11 @@ export function RevealItem({ as = "div", children, ...props }) {
       group.count--;
     };
   }, [group]);
+
+  if (immediate || reduced) {
+    const Tag = as;
+    return <Tag {...props}>{children}</Tag>;
+  }
 
   return (
     <Component

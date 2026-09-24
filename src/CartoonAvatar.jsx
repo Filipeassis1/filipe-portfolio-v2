@@ -1,6 +1,8 @@
 import { useEffect, useId, useRef } from "react";
 
 const assets = "/assets/avatar/";
+const IDLE_INTENSITY = 1.15;
+const IDLE_SPEED = 1.15;
 // Coordinates from Figma 475:13260, on the same 1162 × 1354 canvas as the base.
 const eyes = [
   { side: "left", x: 410, y: 498, maskX: 385, maskY: 537, width: 154, height: 106 },
@@ -17,6 +19,7 @@ export default function CartoonAvatar({ className = "simple-avatar" }) {
     const pointer = window.matchMedia("(any-hover: hover) and (any-pointer: fine)");
     let frame = 0;
     let position = null;
+    let inViewport = true;
 
     const reset = () => {
       cancelAnimationFrame(frame);
@@ -42,7 +45,7 @@ export default function CartoonAvatar({ className = "simple-avatar" }) {
       if (position && !frame) frame = requestAnimationFrame(render);
     };
     const move = (event) => {
-      if (motion.matches || !pointer.matches || event.pointerType !== "mouse") return;
+      if (!inViewport || motion.matches || !pointer.matches || event.pointerType !== "mouse") return;
       position = { x: event.clientX, y: event.clientY };
       schedule();
     };
@@ -53,15 +56,22 @@ export default function CartoonAvatar({ className = "simple-avatar" }) {
     let idleTimer = 0;
     let idleTarget = { x: 0, y: 0 };
     const idleCurrent = { x: 0, y: 0 };
+    let lastTick = 0;
 
-    const idleTick = () => {
-      idleCurrent.x += (idleTarget.x - idleCurrent.x) * 0.06;
-      idleCurrent.y += (idleTarget.y - idleCurrent.y) * 0.06;
+    const idleTick = (now) => {
+      idleFrame = 0;
+      const elapsed = lastTick ? Math.min(now - lastTick, 64) : 1000 / 60;
+      lastTick = now;
+      const blend = 1 - Math.pow(1 - 0.06, elapsed / (1000 / 60) * IDLE_SPEED);
+      idleCurrent.x += (idleTarget.x - idleCurrent.x) * blend;
+      idleCurrent.y += (idleTarget.y - idleCurrent.y) * blend;
       const limit = Math.max(1, Math.hypot(idleCurrent.x, idleCurrent.y));
       pupilsRef.current.forEach((pupil) => {
-        pupil?.setAttribute("transform", `translate(${25 * idleCurrent.x / limit} ${25 * idleCurrent.y / limit})`);
+        pupil?.setAttribute("transform", `translate(${25 * IDLE_INTENSITY * idleCurrent.x / limit} ${25 * IDLE_INTENSITY * idleCurrent.y / limit})`);
       });
-      idleFrame = requestAnimationFrame(idleTick);
+      if (Math.hypot(idleTarget.x - idleCurrent.x, idleTarget.y - idleCurrent.y) > 0.001) {
+        idleFrame = requestAnimationFrame(idleTick);
+      }
     };
     const pickIdleTarget = () => {
       if (Math.random() < 0.25) {
@@ -71,7 +81,11 @@ export default function CartoonAvatar({ className = "simple-avatar" }) {
         const radius = 0.3 + Math.random() * 0.7;
         idleTarget = { x: Math.cos(angle) * radius, y: Math.sin(angle) * radius * 0.6 };
       }
-      idleTimer = window.setTimeout(pickIdleTarget, 900 + Math.random() * 2200);
+      if (!idleFrame) {
+        lastTick = 0;
+        idleFrame = requestAnimationFrame(idleTick);
+      }
+      idleTimer = window.setTimeout(pickIdleTarget, (900 + Math.random() * 2200) / IDLE_SPEED);
     };
     const stopIdle = () => {
       cancelAnimationFrame(idleFrame);
@@ -80,11 +94,10 @@ export default function CartoonAvatar({ className = "simple-avatar" }) {
       idleTimer = 0;
     };
     const startIdle = () => {
-      if (idleFrame || motion.matches || pointer.matches) return;
+      if (idleTimer || document.hidden || !inViewport || motion.matches || pointer.matches) return;
       idleCurrent.x = 0;
       idleCurrent.y = 0;
       pickIdleTarget();
-      idleFrame = requestAnimationFrame(idleTick);
     };
     const syncMode = () => {
       reset();
@@ -106,11 +119,18 @@ export default function CartoonAvatar({ className = "simple-avatar" }) {
     motion.addEventListener("change", syncMode);
     pointer.addEventListener("change", syncMode);
 
+    const observer = new IntersectionObserver(([entry]) => {
+      inViewport = entry.isIntersecting;
+      if (inViewport) startIdle();
+      else { reset(); stopIdle(); }
+    });
+    observer.observe(canvasRef.current);
     startIdle();
 
     return () => {
       reset();
       stopIdle();
+      observer.disconnect();
       window.removeEventListener("pointermove", move);
       document.documentElement.removeEventListener("pointerleave", reset);
       window.removeEventListener("blur", reset);
@@ -132,7 +152,7 @@ export default function CartoonAvatar({ className = "simple-avatar" }) {
             </mask>
           ))}
         </defs>
-        <image href={`${assets}base.png`} width="1162" height="1354" />
+        <image href={`${assets}base.webp`} width="1162" height="1354" />
         {eyes.map((eye, index) => (
           <g key={eye.side} mask={`url(#${id}-${eye.side})`}>
             <g ref={(node) => { pupilsRef.current[index] = node; }}>

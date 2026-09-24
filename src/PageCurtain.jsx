@@ -23,6 +23,7 @@ export function curtainDelay() {
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function readMode() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce), (max-width: 760px), (hover: none)").matches) return "idle";
   return document.documentElement.dataset.curtain || "idle";
 }
 
@@ -73,6 +74,7 @@ export default function PageCurtain() {
     }
 
     const onClick = (event) => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce), (max-width: 760px), (hover: none)").matches) return;
       const anchor = event.target.closest("a[href]");
       if (!anchor) return;
       const url = internalDestination(anchor, event);

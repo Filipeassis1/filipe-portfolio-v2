@@ -14,7 +14,7 @@
     <script>
       (() => {
         try {
-          if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          if (matchMedia("(prefers-reduced-motion: reduce), (max-width: 760px), (hover: none)").matches) return;
           if (sessionStorage.getItem("page-transition") === "1") {
             document.documentElement.dataset.curtain = "enter";
           } else if (!sessionStorage.getItem("intro-played") && /^\/(index\.html)?$/.test(location.pathname)) {
