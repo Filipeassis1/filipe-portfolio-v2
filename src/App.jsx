@@ -951,9 +951,6 @@ function ElevVisualPage() {
             <p>
               O projeto não terminou no Figma. A interface foi implementada, usando o MCP do <strong>Figma</strong> e o <strong>Claude Code</strong>, ajustada para diferentes dispositivos e publicada em ambiente de produção, fechando o ciclo entre conceito, design e entrega.
             </p>
-            <p>
-              Essa seção é muito importante para deixar claro que o projeto vai além de UI.
-            </p>
           </section>
 
           <ElevScreensShowcase />
