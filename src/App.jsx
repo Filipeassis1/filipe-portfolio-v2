@@ -4,6 +4,8 @@ import CartoonAvatar from "./CartoonAvatar.jsx";
 import ContentCard from "./ContentCard.jsx";
 import PlaygroundMarquee from "./PlaygroundMarquee.jsx";
 import PageCurtain from "./PageCurtain.jsx";
+import LanaV2Page from "./LanaV2Page.jsx";
+import HubtimeV2Page from "./HubtimeV2Page.jsx";
 import { RevealGroup, RevealItem, useRevealScope } from "./Reveal.jsx";
 
 const caseRevealSelector = ".elev-case__hero > *, .elev-case__shell > :not(.case-header, .elev-case__hero)";
@@ -1568,8 +1570,12 @@ function NauraCoutoPage() {
 }
 
 function CurrentPage() {
-  if (["/project", "/project.html"].includes(window.location.pathname)) {
-    return <LanaPage />;
+  if (["/projects/hubtime-v2", "/projects/hubtime-v2.html"].includes(window.location.pathname)) {
+    return <Shell pageClass="hubtime-v2-page"><HubtimeV2Page header={<CaseHeader current="HubTime" />} /></Shell>;
+  }
+
+  if (["/project", "/project.html", "/projects/lana-v2", "/projects/lana-v2.html"].includes(window.location.pathname)) {
+    return <Shell pageClass="lana-v2-page"><LanaV2Page header={<CaseHeader current="Lana Automotiva" />} /></Shell>;
   }
 
   if (window.location.pathname.includes("/projects/elev-visual")) {
