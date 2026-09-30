@@ -136,7 +136,17 @@ export default function LanaV2Page({ header }) {
         <figure className="lana-v2__showcase"><div className="lana-v2__video-stage"><DemoVideo src="pneus-lana-web.mp4" poster="preview-site.png" label="demonstração da página de pneus" /></div><figcaption>Títulos e seções de cada página alinhados às keywords priorizadas: produto ou serviço, marca e cidade no H1, e perguntas frequentes reais no fim da página.</figcaption></figure>
         <Comparison />
         <div className="lana-v2__section lana-v2__geo"><h3>Preparado para a busca local e para respostas de IA</h3><p>GEO entrou como frente do projeto porque cada vez mais gente pergunta a assistentes de IA onde resolver o carro. O conteúdo foi escrito para ser encontrado, entendido e citado.</p><Cards items={[["FAQ por página", "Perguntas reais de busca respondidas na própria página, no formato que buscadores e IAs conseguem extrair."], ["Dados locais consistentes", "Endereço, horário e cidade iguais em todas as páginas."], ["Confiança verificável", "Avaliações do Google, Rede Ancora e marcas de pneus como prova — no lugar de depoimentos genéricos."], ["WhatsApp contextual", "Cada página abre o WhatsApp com uma mensagem do próprio assunto, preservando o que a v1 já fazia bem."]]} /></div>
-        <Showcase name="local-details" alt="Detalhes das páginas: contato, localização, informações locais e perguntas frequentes" height={480} caption="Mobile: a busca por serviços locais acontece principalmente no celular, então o contato fica sempre ao alcance do polegar." />
+        <figure className="lana-v2__mobile">
+          <div className="lana-v2__mobile-grid">
+            <div className="lana-v2__mobile-card lana-v2__mobile-card--interface" role="img" aria-label="Versão mobile da Lana com navegação, página de pneus e contato por WhatsApp">
+              <Picture name="mobile-interface" alt="" width={688} height={480} />
+            </div>
+            <div className="lana-v2__mobile-card lana-v2__mobile-card--phone" role="img" aria-label="Mockup da página mobile da Lana em um celular segurado por uma mão">
+              <Picture name="mobile-phone" alt="" width={480} height={480} />
+            </div>
+          </div>
+          <figcaption>Mobile: a busca por serviços locais acontece principalmente no celular, então o contato fica sempre ao alcance do polegar.</figcaption>
+        </figure>
       </section>
       <section className="lana-v2__section" aria-labelledby="lana-v2-handoff"><h2 id="lana-v2-handoff">Entregar para quem vai construir.</h2><p>A v2 foi documentada para que conteúdo e desenvolvimento pudessem seguir sem adivinhar: cada página tem uma função, uma keyword e uma história de usuário ligada a ela.</p><Cards items={[["User stories por página", "Histórias de usuário rastreadas até as dobras da home e as páginas do sitemap."], ["Arquitetura documentada", "Sitemap, estrutura dobra a dobra e um template de página de serviço replicável ×6."], ["Mapa de mensagens do WhatsApp", "Texto pré-preenchido para cada contexto: autopeças, agendar serviço, comercial e frotas."]]} /><Learnings /></section>
       <section id="lana-v2-preview" className="lana-v2__preview" aria-labelledby="lana-v2-preview-title"><div className="lana-v2__section"><h3 id="lana-v2-preview-title">A v2 já saiu do Figma.</h3><p>O preview está publicado e segue em desenvolvimento, construído a partir dos tokens e componentes documentados, com apoio do Claude e do Codex.</p><PreviewLink href="https://lanaautomotiva.com.br">Ver atual</PreviewLink><PreviewLink href={previewUrl}>Ver preview redesign</PreviewLink></div><div className="lana-v2__preview-image"><Picture name="preview-site" alt="Preview implementado da página de pneus da Lana" width={600} height={388} /></div></section>

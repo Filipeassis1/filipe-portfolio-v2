@@ -7,14 +7,16 @@ The case's text, cards, metadata, layout and interactions are React/CSS. The fol
 | File | Figma node |
 | --- | --- |
 | cover-process.png | 658:18404 |
-| foundations-tokens.png | 728:22901 |
-| foundations-components.png | 658:13051 |
-| interface-screens.png | 658:18668 |
-| interface-phone.png | 740:14544 |
+| foundations-tokens.png | 728:22901 (2× export) |
+| foundations-components.png | 658:13051 (2× export) |
+| interface-screens.png | 658:18668 (2× export) |
+| interface-phone.png | 740:14544 (2× export) |
 | local-details.png | 658:22599 |
+| mobile-interface.png | 760:26640 (2× export) |
+| mobile-phone.png | 763:32978 (2× export) |
 | sitemap-v1.png | 721:15620 |
 | sitemap-v2.png | 719:15955 |
-| research-poster.png | 713:13795 |
+| research-poster.png | 713:13795 (2× export) |
 | research-results.png | 713:13790 (image overlay) |
 | organic-background.png | 658:18537 (image fill) |
 | preview-site.png | 746:23844 (image fill) |
