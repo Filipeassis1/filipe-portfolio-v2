@@ -12,16 +12,6 @@ const caseRevealSelector = ".elev-case__hero > *, .elev-case__shell > :not(.case
 
 const mainProjects = [
   {
-    title: "HubTime",
-    metadata: "Design System · UI Design · Alinhamentos com Stakeholders · IA",
-    description:
-      "Participação ativa na construção de uma plataforma de gestão, desde reuniões com idealizadores e PM, levantamento de requisitos e definição de fluxos até a criação das interfaces e estruturação do Design System",
-    href: "/projects/hubtime.html",
-    icon: "/assets/content-card/hubtime.png",
-    width: 24,
-    height: 24
-  },
-  {
     title: "Lana Automotiva",
     metadata: "Design System · UI Design · Pesquisa · IA",
     description:
@@ -31,6 +21,16 @@ const mainProjects = [
     iconClass: "simple-project__icon--lana",
     width: 16,
     height: 16
+  },
+  {
+    title: "HubTime",
+    metadata: "Design System · UI Design · Alinhamentos com Stakeholders · IA",
+    description:
+      "Participação ativa na construção de uma plataforma de gestão, desde reuniões com idealizadores e PM, levantamento de requisitos e definição de fluxos até a criação das interfaces e estruturação do Design System",
+    href: "/projects/hubtime.html",
+    icon: "/assets/content-card/hubtime.png",
+    width: 24,
+    height: 24
   }
 ];
 
