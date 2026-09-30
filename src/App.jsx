@@ -1,5 +1,6 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import CartoonAvatar from "./CartoonAvatar.jsx";
 import ContentCard from "./ContentCard.jsx";
 import PlaygroundMarquee from "./PlaygroundMarquee.jsx";
@@ -1594,6 +1595,7 @@ export default function App() {
     <>
       <PageCurtain />
       <CurrentPage />
+      <Analytics />
     </>
   );
 }
