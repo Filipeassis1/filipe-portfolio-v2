@@ -7,11 +7,10 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: "index.html",
-        lana: "project.html",
-        lanaV2: "projects/lana-v2.html",
+        lana: "projects/lana.html",
+        lanaLegacy: "project.html",
         elevVisual: "projects/elev-visual.html",
         hubtime: "projects/hubtime.html",
-        hubtimeV2: "projects/hubtime-v2.html",
         nauraCouto: "projects/naura-couto.html"
       }
     }

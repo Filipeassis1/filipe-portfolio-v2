@@ -16,7 +16,7 @@ const mainProjects = [
     metadata: "Design System · UI Design · Pesquisa · IA",
     description:
       "Um website construído a partir de pesquisa, UX e estratégia de conteúdo, conectando experiência, SEO e conversão para ampliar a presença digital da Lana.",
-    href: "/project.html",
+    href: "/projects/lana.html",
     icon: "/assets/content-card/lana.svg",
     iconClass: "simple-project__icon--lana",
     width: 16,
@@ -1570,20 +1570,16 @@ function NauraCoutoPage() {
 }
 
 function CurrentPage() {
-  if (["/projects/hubtime-v2", "/projects/hubtime-v2.html"].includes(window.location.pathname)) {
+  if (["/projects/hubtime", "/projects/hubtime.html"].includes(window.location.pathname)) {
     return <Shell pageClass="hubtime-v2-page"><HubtimeV2Page header={<CaseHeader current="HubTime" />} /></Shell>;
   }
 
-  if (["/project", "/project.html", "/projects/lana-v2", "/projects/lana-v2.html"].includes(window.location.pathname)) {
+  if (["/projects/lana", "/projects/lana.html"].includes(window.location.pathname)) {
     return <Shell pageClass="lana-v2-page"><LanaV2Page header={<CaseHeader current="Lana Automotiva" />} /></Shell>;
   }
 
   if (window.location.pathname.includes("/projects/elev-visual")) {
     return <ElevVisualPage />;
-  }
-
-  if (window.location.pathname.includes("/projects/hubtime")) {
-    return <HubtimePage />;
   }
 
   if (window.location.pathname.includes("/projects/naura-couto")) {

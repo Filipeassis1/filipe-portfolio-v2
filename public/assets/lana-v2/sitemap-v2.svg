@@ -193,6 +193,22 @@
 </g>
 </g>
 </g>
+<g id="autopecas-route-overrides" aria-label="Rotas de autopeças">
+<rect x="386" y="113" width="188" height="14" fill="#F9F9F9"/>
+<rect x="386" y="129" width="188" height="13" fill="#F9F9F9"/>
+<rect x="340" y="199" width="196" height="12" fill="white"/>
+<rect x="340" y="260" width="196" height="12" fill="white"/>
+<rect x="340" y="321" width="196" height="12" fill="white"/>
+<rect x="340" y="382" width="196" height="12" fill="white"/>
+<text x="388" y="123.5" fill="#0B1533" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="600">Autopeças</text>
+<g fill="#65708D" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="400">
+<text x="388" y="139">/autopecas</text>
+<text x="342" y="209">/autopecas/baterias</text>
+<text x="342" y="270">/autopecas/oleos</text>
+<text x="342" y="331">/autopecas/filtros</text>
+<text x="342" y="392">/autopecas/pastilhas</text>
+</g>
+</g>
 <g id="Categoria_3">
 <rect x="612" y="95" width="276" height="467" rx="16" fill="#F9F9F9"/>
 <rect x="612.5" y="95.5" width="275" height="466" rx="15.5" stroke="#E0E0E0" stroke-opacity="0.5"/>

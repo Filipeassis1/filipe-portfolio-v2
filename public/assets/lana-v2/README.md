@@ -28,12 +28,12 @@ The comparator artwork was exported using temporary copies, then those copies we
 
 `research-demo.mp4` is the matching local `Downloads/lana-record.mp4`. `pneus-lana.mp4` was already present in the project. Videos play muted when visible, pause offscreen, provide a manual pause control, and respect `prefers-reduced-motion`.
 
-The main case is served at `/project.html` (with `/projects/lana-v2.html` retained as an alias). Both preview CTAs link to `https://lana-institucional-v2.vercel.app/`. The original site is `https://lanaautomotiva.com.br`, verified against the site's local project documentation.
+The main case is served at `/projects/lana.html`. The former `/project.html` address redirects to the official route for backwards compatibility, and the temporary `/projects/lana-v2.html` validation route has been removed. Both preview CTAs link to `https://lana-institucional-v2.vercel.app/`. The original site is `https://lanaautomotiva.com.br`, verified against the site's local project documentation.
 
 The repeated learnings/next steps at the bottom follow the supplied Figma frame.
 
 ## SVG connections and mobile media
 
-`sitemap-v2.svg` is the original vector export of `719:15955` (no raster images). The `home-connection-flow` group adds four masked gradient trails along the original connection coordinates, beneath the Home card, with a 4.2-second loop. Reduced motion hides the trails.
+`sitemap-v2.svg` is the original vector export of `719:15955` (no raster images). The `home-connection-flow` group adds four masked gradient trails along the original connection coordinates, beneath the Home card, with a 4.2-second loop. Reduced motion hides the trails. The `autopecas-route-overrides` group renames the category to “Autopeças” and updates its paths from `/pecas-e-acessorios` to `/autopecas` while preserving the exported vector artwork.
 
 The page uses `research-demo-web.mp4` and `pneus-lana-web.mp4`: H.264 Main level 3.1, 1280×718, 30 fps, yuv420p, silent, MP4 faststart. Originals remain preserved. These derivatives avoid the original 2204×1238 High level 5.0 decoder requirement and reduce transfer size. Native muted inline autoplay/loop is supplemented by visible-page and canplay retries; blocked autoplay can still be started with the play control. Research panels share equal columns and the same aspect ratio.
